@@ -24,6 +24,8 @@ gem 'pundit'
 gem 'simple_form'
 gem 'upmin-admin'
 group :development do
+  gem 'letter_opener'
+  gem 'letter_opener_web'
   gem 'better_errors'
   gem 'guard-bundler'
   gem 'guard-rails'
