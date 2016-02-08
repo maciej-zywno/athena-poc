@@ -1,0 +1,68 @@
+[
+  {
+    "customfieldid": "141",
+    "disallowupdate": "false",
+    "select": "false",
+    "casesensitive": "false",
+    "name": "Admitted",
+    "searchable": "true",
+    "type": "TEXT"
+  },
+  {
+    "selectlist": [
+      {
+        "optionvalue": "Yes",
+        "optionid": "63"
+      }
+    ],
+    "customfieldid": "203",
+    "disallowupdate": "false",
+    "select": "true",
+    "casesensitive": "false",
+    "name": "Dental Patient",
+    "type": "TEXT"
+  },
+  {
+    "selectlist": [
+      {
+        "optionvalue": "Yes",
+        "optionid": "61"
+      },
+      {
+        "optionvalue": "No",
+        "optionid": "62"
+      }
+    ],
+    "customfieldid": "162",
+    "disallowupdate": "false",
+    "select": "true",
+    "casesensitive": "false",
+    "name": "Healthkit Enabled",
+    "type": "TEXT"
+  },
+  {
+    "customfieldid": "181",
+    "disallowupdate": "false",
+    "select": "true",
+    "casesensitive": "false",
+    "name": "Hk",
+    "type": "TEXT"
+  },
+  {
+    "customfieldid": "21",
+    "disallowupdate": "false",
+    "select": "false",
+    "casesensitive": "false",
+    "name": "Medical Record Number",
+    "searchable": "true",
+    "type": "TEXT"
+  },
+  {
+    "customfieldid": "201",
+    "disallowupdate": "false",
+    "select": "false",
+    "casesensitive": "false",
+    "name": "TEST",
+    "type": "TEXT"
+  }
+]

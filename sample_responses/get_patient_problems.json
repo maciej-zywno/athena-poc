@@ -1,0 +1,36 @@
+{
+  "lastupdated": "02/08/2016",
+  "totalcount": 2,
+  "problems": [
+    {
+      "problemid": "7047",
+      "events": [
+        {
+          "source": "HISTORY",
+          "eventtype": "START",
+          "startdate": "02/08/2016",
+          "note": "moja notka bla bla",
+          "diagnoses": []
+        }
+      ],
+      "codeset": "SNOMED",
+      "name": "Carpal tunnel syndrome",
+      "code": "57406009"
+    },
+    {
+      "problemid": "7048",
+      "events": [
+        {
+          "source": "HISTORY",
+          "eventtype": "START",
+          "startdate": "02/08/2016",
+          "note": "drugi problem bla bla",
+          "diagnoses": []
+        }
+      ],
+      "codeset": "SNOMED",
+      "name": "Struther ligament entrapment",
+      "code": "230630005"
+    }
+  ]
+}

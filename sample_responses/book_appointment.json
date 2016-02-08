@@ -1,0 +1,15 @@
+[
+  {
+    "date": "02/09/2016",
+    "appointmentid": "660042",
+    "starttime": "08:45",
+    "departmentid": "1",
+    "appointmentstatus": "f",
+    "patientid": "21192",
+    "duration": "15",
+    "appointmenttypeid": "82",
+    "appointmenttype": "Any 15",
+    "providerid": "71",
+    "patientappointmenttypename": "Established Patient"
+  }
+]

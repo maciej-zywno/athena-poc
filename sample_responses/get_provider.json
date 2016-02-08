@@ -1,0 +1,16 @@
+[
+  {
+    "firstname": "Terry",
+    "specialty": "Internal Medicine",
+    "acceptingnewpatients": "false",
+    "providertypeid": "MD",
+    "billable": "false",
+    "ansinamecode": "Allopathic \u0026 Osteopathic Physicians : Family Practice (207Q00000X)",
+    "lastname": "Ahmad",
+    "providerid": "86",
+    "ansispecialtycode": "207Q00000X",
+    "hideinportal": "false",
+    "entitytype": "Person",
+    "providertype": "MD"
+  }
+]

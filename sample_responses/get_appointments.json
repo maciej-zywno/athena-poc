@@ -1,0 +1,41 @@
+{
+  "totalcount": 3,
+  "appointments": [
+    {
+      "date": "02/09/2016",
+      "copay": 0,
+      "appointmenttypeid": "82",
+      "appointmentid": "660042",
+      "appointmenttype": "Any 15",
+      "starttime": "08:45",
+      "patientappointmenttypename": "Established Patient",
+      "departmentid": "1",
+      "providerid": "71",
+      "appointmentstatus": "f"
+    },
+    {
+      "date": "02/09/2016",
+      "copay": 0,
+      "appointmenttypeid": "82",
+      "appointmentid": "660795",
+      "appointmenttype": "Any 15",
+      "starttime": "09:30",
+      "patientappointmenttypename": "Established Patient",
+      "departmentid": "1",
+      "providerid": "71",
+      "appointmentstatus": "f"
+    },
+    {
+      "date": "02/09/2016",
+      "copay": 0,
+      "appointmenttypeid": "82",
+      "appointmentid": "661036",
+      "appointmenttype": "Any 15",
+      "starttime": "09:45",
+      "patientappointmenttypename": "Established Patient",
+      "departmentid": "1",
+      "providerid": "71",
+      "appointmentstatus": "f"
+    }
+  ]
+}

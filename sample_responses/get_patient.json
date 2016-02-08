@@ -1,0 +1,50 @@
+[
+  {
+    "racename": "Patient Declined",
+    "occupationcode": null,
+    "departmentid": "1",
+    "portalaccessgiven": "false",
+    "driverslicense": "false",
+    "ethnicitycode": null,
+    "industrycode": null,
+    "contacthomephone": null,
+    "guarantorssn": null,
+    "zip": "02139",
+    "guarantoraddresssameaspatient": "false",
+    "employerphone": null,
+    "contactmobilephone": null,
+    "nextkinphone": null,
+    "portaltermsonfile": "false",
+    "status": "active",
+    "lastname": "Zywno",
+    "city": "LODZ",
+    "ssn": null,
+    "sex": "M",
+    "privacyinformationverified": "false",
+    "primarydepartmentid": "1",
+    "balances": [
+      {
+        "balance": 0,
+        "departmentlist": "1,21,102,145,148,150,157,162",
+        "providergroupid": "1",
+        "cleanbalance": "true"
+      }
+    ],
+    "race": ["declined"],
+    "language6392code": "declined",
+    "primaryproviderid": "",
+    "patientphoto": "false",
+    "caresummarydeliverypreference": null,
+    "firstname": "Maciej",
+    "patientid": "21192",
+    "dob": "06/18/1987",
+    "guarantorrelationshiptopatient": "1",
+    "address1": "Testowa 12r2",
+    "guarantorphone": null,
+    "maritalstatus": "S",
+    "countrycode": "USA",
+    "maritalstatusname": "SINGLE",
+    "consenttotext": "false",
+    "countrycode3166": "US"
+  }
+]

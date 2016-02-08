@@ -1,0 +1,465 @@
+{
+  "totalcount": 46,
+  "appointmenttypes": [
+    {
+      "shortname": "OV",
+      "name": "Office Visit",
+      "duration": "10",
+      "patientdisplayname": "Office Visit",
+      "appointmenttypeid": "2",
+      "generic": "true",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "PHYS",
+      "name": "PHYSICAL EXAM",
+      "duration": "30",
+      "patientdisplayname": "Physical Exam Visit",
+      "appointmenttypeid": "4",
+      "generic": "true",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "LAB",
+      "name": "Lab Work",
+      "duration": "15",
+      "patientdisplayname": "Lab Work",
+      "appointmenttypeid": "5",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "SURG",
+      "name": "Surgery",
+      "duration": "60",
+      "patientdisplayname": "Surgery (time is not correct)",
+      "appointmenttypeid": "6",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "NP",
+      "name": "New Patient Appointment",
+      "duration": "30",
+      "patientdisplayname": "New Patient Appointment",
+      "appointmenttypeid": "8",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "ALLG",
+      "name": "CGE ALLERGY",
+      "duration": "30",
+      "patientdisplayname": "Allergy Test",
+      "appointmenttypeid": "21",
+      "generic": "true",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "PE",
+      "name": "PHYSICAL",
+      "duration": "15",
+      "patientdisplayname": "Annual Physical",
+      "appointmenttypeid": "23",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "EST",
+      "name": "Established",
+      "duration": "15",
+      "patientdisplayname": "Established Visit",
+      "appointmenttypeid": "42",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "CONS",
+      "name": "Consult",
+      "duration": "30",
+      "patientdisplayname": "Consultation Visit",
+      "appointmenttypeid": "62",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "CSK",
+      "name": "Sea Sickness",
+      "duration": "15",
+      "patientdisplayname": "Sea Sickness",
+      "appointmenttypeid": "102",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "WF1",
+      "name": "Weigh Forward 1",
+      "duration": "30",
+      "patientdisplayname": "Weigh Forward 1",
+      "appointmenttypeid": "122",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "WF2",
+      "name": "Weigh Forward 2",
+      "duration": "15",
+      "patientdisplayname": "Weigh Forward 2",
+      "appointmenttypeid": "123",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "WF3",
+      "name": "Weigh Forward 3",
+      "duration": "15",
+      "patientdisplayname": "Weigh Forward 3",
+      "appointmenttypeid": "124",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "WFA",
+      "name": "Weigh Forward Any",
+      "duration": "15",
+      "patientdisplayname": "Weigh Forward Any",
+      "appointmenttypeid": "142",
+      "generic": "true",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "hlth",
+      "name": "health history",
+      "duration": "45",
+      "patientdisplayname": "health history",
+      "appointmenttypeid": "162",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "666",
+      "name": "Cardiology",
+      "duration": "45",
+      "patientdisplayname": "Cardiology",
+      "appointmenttypeid": "182",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "RCDT",
+      "name": "ReminderCall Default",
+      "duration": "30",
+      "patientdisplayname": "ReminderCall Default",
+      "appointmenttypeid": "202",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "NE",
+      "name": "New Evaluation",
+      "duration": "60",
+      "patientdisplayname": "New Evaluation",
+      "appointmenttypeid": "242",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "nob",
+      "name": "New OB",
+      "duration": "30",
+      "patientdisplayname": "New OB",
+      "appointmenttypeid": "262",
+      "generic": "true",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "MAWV",
+      "name": "Medicare Annual Wellness Visit",
+      "duration": "15",
+      "patientdisplayname": "Medicare Annual Wellness Visit",
+      "appointmenttypeid": "282",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "LTST",
+      "name": "Lab Testing",
+      "duration": "5",
+      "patientdisplayname": "Lab Testing",
+      "appointmenttypeid": "302",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "ta",
+      "name": "test appt",
+      "duration": "20",
+      "patientdisplayname": "test appt",
+      "appointmenttypeid": "322",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "WST",
+      "name": "WebScheduleTest",
+      "duration": "15",
+      "patientdisplayname": "New Patient Web Schedule",
+      "appointmenttypeid": "362",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "WC",
+      "name": "Well Child Check 20",
+      "duration": "20",
+      "patientdisplayname": "Well Child Check 20",
+      "appointmenttypeid": "382",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "WC30",
+      "name": "Well Child Check 30",
+      "duration": "30",
+      "patientdisplayname": "Well Child Check 30",
+      "appointmenttypeid": "383",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "WC10",
+      "name": "Well Visit 10",
+      "duration": "10",
+      "patientdisplayname": "Well Visit 10",
+      "appointmenttypeid": "384",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "COL",
+      "name": "Collaborative 1",
+      "duration": "15",
+      "patientdisplayname": "Collaborative 1",
+      "appointmenttypeid": "422",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "COL2",
+      "name": "Collaborative 2",
+      "duration": "15",
+      "patientdisplayname": "Collaborative 2",
+      "appointmenttypeid": "423",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "OVE",
+      "name": "ENT OV",
+      "duration": "15",
+      "patientdisplayname": "ENT OV",
+      "appointmenttypeid": "442",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "HRE",
+      "name": "Hearing Eval",
+      "duration": "15",
+      "patientdisplayname": "Hearing Eval",
+      "appointmenttypeid": "443",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "EUT",
+      "name": "EUT Consult",
+      "duration": "30",
+      "patientdisplayname": "Office Consult",
+      "appointmenttypeid": "462",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "TR",
+      "name": "tentacle reattachment",
+      "duration": "60",
+      "patientdisplayname": "tentacle reattachment",
+      "appointmenttypeid": "482",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "XRAY",
+      "name": "XRAY",
+      "duration": "15",
+      "patientdisplayname": "XRAY",
+      "appointmenttypeid": "502",
+      "generic": "true",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "Vag",
+      "name": "Vaginal Exam",
+      "duration": "30",
+      "patientdisplayname": "Vaginal Exam",
+      "appointmenttypeid": "542",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "NV",
+      "name": "Nurse Visit",
+      "duration": "15",
+      "patientdisplayname": "Nurse Visit",
+      "appointmenttypeid": "562",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "Diab",
+      "name": "Diabetes",
+      "duration": "15",
+      "patientdisplayname": "Diabetes",
+      "appointmenttypeid": "582",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "NPE",
+      "name": "New PE",
+      "duration": "20",
+      "patientdisplayname": "New Well Child",
+      "appointmenttypeid": "602",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "SV",
+      "name": "Sick Visit",
+      "duration": "15",
+      "patientdisplayname": "Sick Visit",
+      "appointmenttypeid": "622",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "TST",
+      "name": "TEST",
+      "duration": "15",
+      "patientdisplayname": "TEST",
+      "appointmenttypeid": "662",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "TH",
+      "name": "Secure Online Video",
+      "duration": "15",
+      "patientdisplayname": "Secure Online Video",
+      "appointmenttypeid": "682",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "WSPA",
+      "name": "Web Scheduling Partner Apt",
+      "duration": "15",
+      "patientdisplayname": "Web Scheduling Partner Apt",
+      "appointmenttypeid": "683",
+      "generic": "true",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "API",
+      "name": "API Test",
+      "duration": "30",
+      "patientdisplayname": "API Test",
+      "appointmenttypeid": "703",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "SO15",
+      "name": "Smart Open 15",
+      "duration": "15",
+      "patientdisplayname": "Smart Open 15",
+      "appointmenttypeid": "723",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "SO20",
+      "name": "Smart Open 20",
+      "duration": "20",
+      "patientdisplayname": "Smart Open 20",
+      "appointmenttypeid": "724",
+      "generic": "true",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "MRI",
+      "name": "MRI SCAN",
+      "duration": "30",
+      "patientdisplayname": "MRI SCAN",
+      "appointmenttypeid": "763",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    },
+    {
+      "shortname": "ZXCV",
+      "name": "Testt",
+      "duration": "1",
+      "patientdisplayname": "Testt",
+      "appointmenttypeid": "866",
+      "generic": "false",
+      "patient": "true",
+      "templatetypeonly": "false"
+    }
+  ]
+}
