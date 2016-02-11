@@ -1,0 +1,3 @@
+<% @practices.each do |practice| %>
+  Name: <%= link_to practice.name, practice_path(id: practice.practiceid) %>
+<% end %>

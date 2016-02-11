@@ -23,6 +23,8 @@ gem 'pg'
 gem 'pundit'
 gem 'simple_form'
 gem 'upmin-admin'
+gem 'virtus'
+
 group :development do
   gem 'letter_opener'
   gem 'letter_opener_web'
