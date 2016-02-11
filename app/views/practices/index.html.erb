@@ -1,3 +1,25 @@
-<% @practices.each do |practice| %>
-  Name: <%= link_to practice.name, practice_path(id: practice.practiceid) %>
-<% end %>
+<h1>Practices</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Communicator</th>
+      <th>Coordinator sender</th>
+      <th>Coordinator receiver</th>
+      <th>Collector</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @practices.each do |practice| %>
+      <tr>
+        <td><%= practice.practiceid %></td>
+        <td><%= link_to practice.name, practice_path(id: practice.practiceid) %></td>
+        <td><%= practice.hascommunicator %></td>
+        <td><%= practice.iscoordinatorsender %></td>
+        <td><%= practice.iscoordinatorreceiver %></td>
+        <td><%= practice.hascollector %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
