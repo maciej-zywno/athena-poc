@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   private
 
   def athena_connection
-    AthenaConnection.new('preview1', 'vnr5gy93grxh9ay5xhrzy6xm', 'uYUX8UZAMcPBbtN')
+    AthenaConnection.new('preview1', current_user.athena_id, current_user.athena_secret)
   end
 end
