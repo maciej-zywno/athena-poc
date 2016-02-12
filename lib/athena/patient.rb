@@ -47,4 +47,9 @@ class Patient
   attribute :consenttotext,                  Boolean
   attribute :countrycode3166,                String
   attribute :guarantorcountrycode3166,       String
+
+  def self.destroy(connection:, practiceid:, patientid:)
+    connection.practiceid = practiceid
+    response = connection.PUT("/patients/#{patientid}", { status: 'deleted' })
+  end
 end

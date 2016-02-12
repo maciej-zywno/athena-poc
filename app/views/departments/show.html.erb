@@ -9,6 +9,7 @@
       <th>Email</th>
       <th>Date of birth</th>
       <th>Address</th>
+      <th>Status</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,8 @@
         <td><%= patient.email %></td>
         <td><%= patient.dob %></td>
         <td><%= patient.address1 %></td>
+        <td><%= patient.status %></td>
+        <td><%= link_to 'Delete', practice_patient_path(params[:practice_id], patient.patientid), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
