@@ -32,7 +32,13 @@ class Department
 
   def self.find(connection:, practiceid:, departmentid:)
     connection.practiceid = practiceid
-    response = connection.GET(BASE_URL, { departmentid: departmentid })
-    Department.new(response['departments'][0])
+    response = connection.GET("#{BASE_URL}/#{departmentid}")
+    Department.new(response[0])
+  end
+
+  def patients(connection:, practiceid:)
+    connection.practiceid = practiceid
+    response = connection.GET('/patients', { departmentid: self.departmentid })
+    response['patients'].map { |attributes| Patient.new(attributes) }
   end
 end

@@ -1,1 +1,26 @@
 <%= @department.name %>
+<h1>Patients</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Date of birth</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td><%= patient.patientid %></td>
+        <td><%= patient.firstname %></td>
+        <td><%= patient.lastname %></td>
+        <td><%= patient.email %></td>
+        <td><%= patient.dob %></td>
+        <td><%= patient.address1 %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
