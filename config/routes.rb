@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :patients, only: [:destroy]
 
     resources :departments, only: :show do
-      # resources :patients, except: :index
+      resources :patients, only: [:new, :create]
     end
   end
 end

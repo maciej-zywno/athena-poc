@@ -1,0 +1,9 @@
+<%= simple_form_for(Patient.new(params[:patient]), url: practice_department_patients_path) do |f| %>
+  <%= f.input :firstname, label: 'First name' %>
+  <%= f.input :lastname, label: 'Last name' %>
+  <%= f.input :email, label: 'Last name' %>
+  <%= f.input :dob, label: 'Date of birth(mm/dd/yyyy)' %>
+  <%= f.hidden_field :practiceid, value: params[:practice_id] %>
+  <%= f.hidden_field :departmentid, value: params[:department_id] %>
+  <%= f.submit %>
+<% end %>

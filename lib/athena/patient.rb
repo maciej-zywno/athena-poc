@@ -1,4 +1,5 @@
 class Patient
+  include ActiveModel::Model
   include Virtus.model
 
   attribute :email,                          String
@@ -47,6 +48,18 @@ class Patient
   attribute :consenttotext,                  Boolean
   attribute :countrycode3166,                String
   attribute :guarantorcountrycode3166,       String
+
+  validates :firstname, :lastname, :email, :dob, :departmentid, presence: true
+
+   def create(connection:, params:)
+    if valid?
+      connection.practiceid = params[:practiceid]
+      connection.POST('/patients', params)
+      true
+    else
+      false
+    end
+  end
 
   def self.destroy(connection:, practiceid:, patientid:)
     connection.practiceid = practiceid
