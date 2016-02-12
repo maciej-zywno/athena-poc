@@ -29,4 +29,10 @@ class Department
   attribute :ecommercecreditcardtypes,     Array
   attribute :zip,                          String
   attribute :communicatorbrandid,          Integer
+
+  def self.find(connection:, practiceid:, departmentid:)
+    connection.practiceid = practiceid
+    response = connection.GET(BASE_URL, { departmentid: departmentid })
+    Department.new(response['departments'][0])
+  end
 end

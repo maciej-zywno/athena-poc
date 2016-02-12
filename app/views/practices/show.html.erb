@@ -35,7 +35,7 @@
   <tbody>
     <% @departments.each do |department| %>
       <tr>
-        <td> <%= department.departmentid %> </td>
+        <td> <%= link_to department.departmentid, practice_department_path(params[:id], department.departmentid) %> </td>
         <td> <%= department.creditcardtypes %> </td>
         <td> <%= department.medicationhistoryconsent %> </td>
         <td> <%= department.timezoneoffset %> </td>
