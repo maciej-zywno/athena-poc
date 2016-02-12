@@ -7,5 +7,6 @@ class PracticesController < ApplicationController
 
   def show
     @practice = Practice.find(connection: athena_connection, practiceid: params[:id])
+    @departments = @practice.departments(connection: athena_connection)
   end
 end

@@ -23,4 +23,10 @@ class Practice
     response = connection.GET(BASE_URL)
     Practice.new(response['practiceinfo'][0])
   end
+
+  def departments(connection:)
+    connection.practiceid = self.practiceid
+    response = connection.GET('departments')
+    response['departments'].map { |attributes| Department.new(attributes)}
+  end
 end
