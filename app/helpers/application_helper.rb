@@ -1,5 +1,5 @@
 module ApplicationHelper
   def offset(str)
-    URI.decode_www_form(URI(str).query).assoc('offset').last
+    CGI::parse(str)['offset'].join('')
   end
 end
