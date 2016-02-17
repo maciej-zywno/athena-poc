@@ -2,11 +2,11 @@ class PracticesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @practices = Practice.all(connection: athena_connection)
+    @practice_collection = athena_health_client.all_practices
   end
 
   def show
-    @practice = Practice.find(connection: athena_connection, practiceid: params[:id])
-    @departments = @practice.departments(connection: athena_connection)
+    @practice = athena_health_client.find_practice(practice_id: params[:id])
+    @department_collection = athena_health_client.all_departments(practice_id: params[:id])
   end
 end

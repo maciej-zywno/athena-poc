@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def athena_connection
-    AthenaConnection.new('preview1', current_user.athena_id, current_user.athena_secret)
+  def athena_health_client
+    @client ||= AthenaHealth::Client.new(version: 'preview1', key: current_user.athena_id, secret: current_user.athena_secret)
   end
 end

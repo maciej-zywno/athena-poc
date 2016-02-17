@@ -2,17 +2,24 @@ class PatientsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    patient = Patient.new(patient_params)
-    if patient.create(connection: athena_connection, params: patient_params)
-      redirect_to practice_department_path(params[:practice_id], params[:department_id]), notice: "Patient created"
-    else
+    response = athena_health_client.create_patient(
+      practice_id: params[:practice_id],
+      department_id: params[:department_id],
+      params: patient_params
+    )
+
+    #this will be refactored
+    if response.is_a? Hash
+      @errors = response
       render :new
+    else
+      redirect_to practice_department_path(params[:practice_id], params[:department_id]), notice: 'Patient created'
     end
   end
 
   def destroy
-    Patient.destroy(connection: athena_connection, practiceid: params[:practice_id], patientid: params[:id])
-    redirect_to :back
+    athena_health_client.delete_patient(practice_id: params[:practice_id], patient_id: params[:id])
+    redirect_to :back, notice: 'Patient destroyed'
   end
 
   private

@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @practices.each do |practice| %>
+    <% @practice_collection.practices.each do |practice| %>
       <tr>
         <td><%= practice.practiceid %></td>
         <td><%= link_to practice.name, practice_path(id: practice.practiceid) %></td>
