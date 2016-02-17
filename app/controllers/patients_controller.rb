@@ -8,8 +8,7 @@ class PatientsController < ApplicationController
       params: patient_params
     )
 
-    #this will be refactored
-    if response.is_a? Hash
+    if response.is_a?(Hash) && response['error'].present?
       @errors = response
       render :new
     else
