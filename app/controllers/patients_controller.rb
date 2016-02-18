@@ -1,12 +1,6 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
-
-  def show
-    @patient = athena_health_client.find_patient(
-      practice_id: params[:practice_id],
-      patient_id: params[:id]
-    )
-  end
+  before_action :find_patient, only: [:show, :edit]
 
   def new
     @patient = AthenaHealth::Patient.new
@@ -27,13 +21,6 @@ class PatientsController < ApplicationController
     else
       redirect_to practice_department_path(params[:practice_id], params[:department_id]), notice: 'Patient created'
     end
-  end
-
-  def edit
-    @patient = athena_health_client.find_patient(
-      practice_id: params[:practice_id],
-      patient_id: params[:id]
-    )
   end
 
   def update
@@ -59,6 +46,13 @@ class PatientsController < ApplicationController
   end
 
   private
+
+  def find_patient
+    @patient = athena_health_client.find_patient(
+      practice_id: params[:practice_id],
+      patient_id: params[:id]
+    )
+  end
 
   def patient_params
     params.require(:athena_health_patient).permit(:firstname, :lastname, :email, :departmentid, :dob)
