@@ -39,7 +39,8 @@ GEM
     addressable (2.4.0)
     arel (6.0.3)
     ast (2.2.0)
-    athena_health (0.4.0)
+    athena_health (0.5.0)
+      activemodel
       typhoeus
       virtus
     autoprefixer-rails (6.3.3)
@@ -359,7 +360,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  athena_health (~> 0.4.0)
+  athena_health (~> 0.5.0)
   better_errors
   bootstrap-sass
   byebug
