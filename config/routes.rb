@@ -8,10 +8,8 @@ Rails.application.routes.draw do
   resources :users
 
   resources :practices, only: [:index, :show] do
-    resources :patients, only: [:destroy]
-
     resources :departments, only: :show do
-      resources :patients, only: [:new, :create]
+      resources :patients, only: [:new, :create, :destroy]
     end
   end
 end

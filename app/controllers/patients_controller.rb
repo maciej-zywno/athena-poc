@@ -18,7 +18,7 @@ class PatientsController < ApplicationController
 
   def destroy
     athena_health_client.delete_patient(practice_id: params[:practice_id], patient_id: params[:id])
-    redirect_to :back, notice: 'Patient destroyed'
+    redirect_to practice_department_path(params[:practice_id], params[:department_id]), notice: 'Patient destroyed'
   end
 
   private
