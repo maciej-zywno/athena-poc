@@ -7,12 +7,12 @@ class PatientsController < ApplicationController
   end
 
   def create
-    @patient = AthenaHealth::Patient.new(patient_params)
+    @patient = AthenaHealth::Patient.new(athena_health_patient_params)
 
     response = athena_health_client.create_patient(
       practice_id: params[:practice_id],
       department_id: params[:department_id],
-      params: patient_params
+      params: athena_health_patient_params
     )
 
     if response.is_a?(Hash) && response['error'].present?
@@ -24,12 +24,12 @@ class PatientsController < ApplicationController
   end
 
   def update
-    @patient = AthenaHealth::Patient.new(patient_params)
+    @patient = AthenaHealth::Patient.new(athena_health_patient_params)
 
     response = athena_health_client.update_patient(
       practice_id: params[:practice_id],
       patient_id: params[:id],
-      params: patient_params
+      params: athena_health_patient_params
     )
 
     if response.is_a?(Hash) && response['error'].present?
@@ -54,7 +54,7 @@ class PatientsController < ApplicationController
     )
   end
 
-  def patient_params
-    params.require(:athena_health_patient).permit(:firstname, :lastname, :email, :departmentid, :dob)
+  def athena_health_patient_params
+    params.require(:athena_health_patient).permit(:firstname, :lastname, :email, :dob)
   end
 end
