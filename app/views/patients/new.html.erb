@@ -1,14 +1,6 @@
-<% if @errors %>
-  <%= "Invalid fields: #{@errors['invalidfields'].join(',')}" if @errors['invalidfields'] && !@errors['invalidfields'].empty? %>
-  <%= "Error message: #{@errors['error']}" %>
-<% end %>
+<%= render 'error_messages' %>
 
-<%= simple_form_for(:patient, url: practice_department_patients_path) do |f| %>
-  <%= f.input :firstname, label: 'First name', input_html: { value: params.dig(:patient, :firstname) } %>
-  <%= f.input :lastname, label: 'Last name', input_html: { value: params.dig(:patient, :lastname) } %>
-  <%= f.input :email, label: 'Email', input_html: { value: params.dig(:patient, :email) }%>
-  <%= f.input :dob, label: 'Date of birth(mm/dd/yyyy)', input_html: { value: params.dig(:patient, :dob) } %>
-  <%= f.hidden_field :practiceid, value: params[:practice_id] %>
-  <%= f.hidden_field :departmentid, value: params[:department_id] %>
-  <%= f.submit %>
+<%= simple_form_for(@patient, url: practice_department_patients_path) do |f| %>
+  <%= render 'form_fields', f: f %>
+  <%= f.submit 'Create patient' %>
 <% end %>

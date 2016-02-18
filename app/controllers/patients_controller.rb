@@ -8,7 +8,13 @@ class PatientsController < ApplicationController
     )
   end
 
+  def new
+    @patient = AthenaHealth::Patient.new
+  end
+
   def create
+    @patient = AthenaHealth::Patient.new(patient_params)
+
     response = athena_health_client.create_patient(
       practice_id: params[:practice_id],
       department_id: params[:department_id],
@@ -23,6 +29,30 @@ class PatientsController < ApplicationController
     end
   end
 
+  def edit
+    @patient = athena_health_client.find_patient(
+      practice_id: params[:practice_id],
+      patient_id: params[:id]
+    )
+  end
+
+  def update
+    @patient = AthenaHealth::Patient.new(patient_params)
+
+    response = athena_health_client.update_patient(
+      practice_id: params[:practice_id],
+      patient_id: params[:id],
+      params: patient_params
+    )
+
+    if response.is_a?(Hash) && response['error'].present?
+      @errors = response
+      render :edit
+    else
+      redirect_to practice_department_path(params[:practice_id], params[:department_id]), notice: 'Patient updated'
+    end
+  end
+
   def destroy
     athena_health_client.delete_patient(practice_id: params[:practice_id], patient_id: params[:id])
     redirect_to practice_department_path(params[:practice_id], params[:department_id]), notice: 'Patient destroyed'
@@ -31,6 +61,6 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:firstname, :lastname, :email, :practiceid, :departmentid, :dob)
+    params.require(:athena_health_patient).permit(:firstname, :lastname, :email, :departmentid, :dob)
   end
 end
