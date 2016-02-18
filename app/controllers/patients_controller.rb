@@ -1,6 +1,13 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
 
+  def show
+    @patient = athena_health_client.find_patient(
+      practice_id: params[:practice_id],
+      patient_id: params[:id]
+    )
+  end
+
   def create
     response = athena_health_client.create_patient(
       practice_id: params[:practice_id],

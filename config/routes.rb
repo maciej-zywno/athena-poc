@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :practices, only: [:index, :show] do
     resources :departments, only: :show do
-      resources :patients, only: [:new, :create, :destroy]
+      resources :patients, only: [:show, :new, :create, :destroy]
     end
   end
 end

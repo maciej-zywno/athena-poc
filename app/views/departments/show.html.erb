@@ -23,6 +23,7 @@
         <td><%= patient.address1 %></td>
         <td><%= patient.status %></td>
         <td><%= link_to 'Delete', practice_department_patient_path(params[:practice_id], params[:id], patient.patientid), method: :delete %></td>
+        <td><%= link_to 'Show', practice_department_patient_path(params[:practice_id], params[:id], patient.patientid) %></td>
       </tr>
     <% end %>
   </tbody>
