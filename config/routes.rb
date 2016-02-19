@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   resources :practices, only: [:index, :show] do
     resources :departments, only: :show do
-      resources :patients
+      resources :patients do
+        member do
+          post :invite
+        end
+      end
     end
   end
 end

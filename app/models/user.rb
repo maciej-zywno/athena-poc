@@ -8,4 +8,12 @@ class User < ActiveRecord::Base
   def set_default_role
     self.role ||= :user
   end
+
+  def athena_health_key
+    role == 'user' ? invited_by.athena_id : athena_id
+  end
+
+  def athena_health_secret
+    role == 'user' ? invited_by.athena_secret : athena_secret
+  end
 end

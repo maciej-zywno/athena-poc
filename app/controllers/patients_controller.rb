@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_patient, only: [:show, :edit]
+  before_action :find_patient, only: [:show, :edit, :invite]
 
   def new
     @patient = AthenaHealth::Patient.new
@@ -43,6 +43,12 @@ class PatientsController < ApplicationController
   def destroy
     athena_health_client.delete_patient(practice_id: params[:practice_id], patient_id: params[:id])
     redirect_to practice_department_path(params[:practice_id], params[:department_id]), notice: 'Patient destroyed'
+  end
+
+  def invite
+    patient_fullname = "#{@patient.firstname} #{@patient.lastname} #{@patient.middlename}"
+    User.invite!({ email: @patient.email, name: patient_fullname, patient_id: @patient.patientid }, current_user)
+    redirect_to practice_department_path(params[:practice_id], params[:department_id]), notice: 'Patient invited'
   end
 
   private

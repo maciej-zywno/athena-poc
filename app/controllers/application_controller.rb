@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   private
 
   def athena_health_client
-    @client ||= AthenaHealth::Client.new(version: 'preview1', key: current_user.athena_id, secret: current_user.athena_secret)
+    @client ||= AthenaHealth::Client.new(
+      version: 'preview1',
+      key: current_user.athena_health_key,
+      secret: current_user.athena_health_secret
+    )
   end
 end

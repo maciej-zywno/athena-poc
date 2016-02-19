@@ -22,6 +22,9 @@
         <td><%= patient.dob %></td>
         <td><%= patient.address1 %></td>
         <td><%= patient.status %></td>
+        <% unless User.find_by_patient_id(patient.patientid) %>
+          <td><%= link_to 'Invite', invite_practice_department_patient_path(params[:practice_id], params[:id], patient.patientid), method: :post %></td>
+        <% end %>
         <td><%= link_to 'Delete', practice_department_patient_path(params[:practice_id], params[:id], patient.patientid), method: :delete %></td>
         <td><%= link_to 'Show', practice_department_patient_path(params[:practice_id], params[:id], patient.patientid) %></td>
         <td><%= link_to 'Edit', edit_practice_department_patient_path(params[:practice_id], params[:id], patient.patientid) %></td>
