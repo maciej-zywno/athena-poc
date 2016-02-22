@@ -7,6 +7,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'athena_health', '~> 0.6.0'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'byebug'
