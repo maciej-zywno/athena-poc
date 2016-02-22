@@ -8,8 +8,11 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    %header
-      = render 'layouts/navigation'
-    %main{:role => "main"}
-      = render 'layouts/messages'
-      = yield
+    = render 'layouts/header'
+    = render 'layouts/navigation'
+    #wrapper
+      .content.animate-panel
+        .row
+          .col-lg-12
+            = yield
+      = render 'layouts/footer'

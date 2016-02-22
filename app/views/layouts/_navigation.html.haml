@@ -1,13 +1,23 @@
--# navigation styled for Bootstrap 3.0
-%nav.navbar.navbar-default.navbar-fixed-top
-  .container
-    .navbar-header
-      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand'
-    .collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        = render 'layouts/navigation_links'
+%aside#menu
+  #navigation
+    .profile-picture
+      .stats-label.text-color
+        %span.font-extra-bold.font-uppercase Username
+        .dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %small.text-muted
+              Links
+              %b.caret
+          %ul.dropdown-menu.animated.flipInX.m-t-xs
+            %li
+              %a{:href => "#"} Example link
+            %li
+              %a{:href => "#"} Example link
+    %ul#side-menu.nav
+      %li.active
+        %a{:href => "index.html"}
+          %span.nav-label Page 1
+          %span.label.label-success.pull-right start
+      %li
+        %a{:href => "page2.html"}
+          %span.nav-label Page 2
