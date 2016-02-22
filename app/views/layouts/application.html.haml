@@ -9,6 +9,10 @@
     = csrf_meta_tags
   %body
     = render 'layouts/header'
-    %main{:role => "main"}
-      = render 'layouts/messages'
-      = yield
+    = render 'layouts/navigation'
+    #wrapper
+      .content.animate-panel
+        .row
+          .col-lg-12
+            = yield
+      = render 'layouts/footer'
