@@ -4,6 +4,7 @@
       .stats-label.text-color
         = link_to gravatar_for(current_user), edit_user_registration_path
         %span.font-extra-bold.font-uppercase= current_user.name
+        %small.text-muted= current_user.email
     %ul#side-menu.nav
       %li.active
         %a{:href => "index.html"}
