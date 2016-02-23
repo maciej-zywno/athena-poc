@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title= content_for?(:title) ? yield(:title) : 'Athena Poc'
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Athena Poc'}"}
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+  %body.blank
+    .color-line
+    = render 'layouts/messages'
+    = yield
+    .row
+      .col-md-12.text-center
+        %strong Athena-POC
+        %br/
+        2016 Copyright Athena-POC
