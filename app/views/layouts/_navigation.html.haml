@@ -2,17 +2,8 @@
   #navigation
     .profile-picture
       .stats-label.text-color
-        %span.font-extra-bold.font-uppercase Username
-        .dropdown
-          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            %small.text-muted
-              Links
-              %b.caret
-          %ul.dropdown-menu.animated.flipInX.m-t-xs
-            %li
-              %a{:href => "#"} Example link
-            %li
-              %a{:href => "#"} Example link
+        = link_to gravatar_for(current_user), edit_user_registration_path
+        %span.font-extra-bold.font-uppercase= current_user.name
     %ul#side-menu.nav
       %li.active
         %a{:href => "index.html"}
