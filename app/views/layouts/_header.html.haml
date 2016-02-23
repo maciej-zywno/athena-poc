@@ -3,20 +3,16 @@
   #logo.light-version
     %span
       ATHENA-POC
-  %nav{:role => "navigation"}
+  %nav{:role => 'navigation'}
     .header-link.hide-menu
       %i.fa.fa-bars
     .mobile-menu
-      %button.navbar-toggle.mobile-menu-toggle{"data-target" => "#mobile-collapse", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggle.mobile-menu-toggle{'data-target' => '#mobile-collapse', 'data-toggle' => 'collapse', :type => 'button'}
         %i.fa.fa-chevron-down
       #mobile-collapse.collapse.mobile-navbar
         %ul.nav.navbar-nav
           %li
-            %a{:href => "login.html"} Login
-          %li
-            %a{:href => "login.html"} Logout
-          %li
-            %a{:href => "profile.html"} Profile
+            = link_to 'Logout', destroy_user_session_path, method: 'delete'
     .navbar-right
       %ul.nav.navbar-nav.no-borders
         %li.dropdown
