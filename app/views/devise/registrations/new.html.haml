@@ -1,8 +1,9 @@
-.register-container.animate-panel
+.login-container.animate-panel
   .row
     .col-md-12
       .text-center.m-b-md
         %h3 Sign up
+        %small Please fill the form to create new account
       .hpanel
         .panel-body
           = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|

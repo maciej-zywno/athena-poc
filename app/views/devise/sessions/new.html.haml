@@ -3,6 +3,7 @@
     .col-md-12
       .text-center.m-b-md
         %h3 Sign in
+        %small Please fill the form to sign in to your account
       .hpanel
         .panel-body
           = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
