@@ -6,7 +6,7 @@
         %small Please fill the form to change your password
       .hpanel
         .panel-body
-          = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put}) do |f|
+          = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
 
             = f.input :password, placeholder: '******', required: true
             = f.input :password_confirmation, placeholder: '******', required: true

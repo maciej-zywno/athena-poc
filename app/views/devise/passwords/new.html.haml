@@ -6,7 +6,7 @@
         %small Please fill the form to recover your password
       .hpanel
         .panel-body
-          = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: 'form'}) do |f|
+          = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
 
             = f.input :email, placeholder: 'example@gmail.com', required: true
             = f.submit 'Recover password', class: 'btn btn-success btn-block'
