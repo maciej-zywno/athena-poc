@@ -11,8 +11,13 @@
     = render 'layouts/header'
     = render 'layouts/navigation'
     #wrapper
+      = render 'layouts/messages'
       .content.animate-panel
         .row
           .col-lg-12
-            = yield
+            %br/
+            %br/
+            .hpanel
+              .panel-body
+                = yield
       = render 'layouts/footer'
