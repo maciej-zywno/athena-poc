@@ -7,8 +7,6 @@
         .panel-body
           = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
 
-            = devise_error_messages!
-
             = f.input :email, placeholder: 'example@gmail.com', required: true
             = f.input :password, placeholder: '******', required: true
 
