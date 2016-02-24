@@ -11,4 +11,8 @@ module ApplicationHelper
       :notice => 'info'
     }[flash_type.to_sym]
   end
+
+  def is_active?(controller)
+    "active" if controller == params[:controller]
+  end
 end
