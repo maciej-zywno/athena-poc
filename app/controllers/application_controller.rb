@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
+  rescue_from Exception do |e|
+    if /AthenaHealth/.match(e.class.to_s)
+      code = AthenaHealth::Error::ERROR_TYPES.key(e.class)
+      redirect_to "/#{code}.html"
+    end
+  end
+
   private
 
   def athena_health_client
