@@ -1,3 +1,8 @@
+- content_for :header_title do
+  Update my account
+
+- breadcrumb :update_my_account
+
 .row
   .col-md-4
     = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|

@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'athena_health', '~> 0.8.0'
 gem 'font-awesome-rails'
+gem 'gretel'
 
 group :development, :test do
   gem 'byebug'
