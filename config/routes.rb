@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  %w( 404 422 500 ).each do |code|
+  %w( 401 404 422 500 ).each do |code|
     match code, to: 'errors#show', code: code, via: :all
   end
 end
