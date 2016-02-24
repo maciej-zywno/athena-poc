@@ -1,2 +1,8 @@
+<%= content_for :header_title do %>
+  Dashboard
+<% end %>
+
+<% breadcrumb :root %>
+
 <h3>Welcome</h3>
 <p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
