@@ -2690,11 +2690,11 @@ h6 {
   transition: all 0.5s;
 }
 .normalheader .hpanel {
-  margin-bottom: 0;
+  margin-bottom: -30px;
 }
 .normalheader {
   min-width: 320px;
-  padding: 40px 40px 0px 40px;
+  padding: 20px 40px 0px 40px;
 }
 @media (max-width: 768px) {
   .normalheader {
