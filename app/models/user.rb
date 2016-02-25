@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  enum role: [:user, :admin]
+  enum role: [:user, :admin, :doctor]
   after_initialize :set_default_role, :if => :new_record?
 
   validates :name, presence: true
