@@ -1,6 +1,0 @@
-<%= render 'error_messages' %>
-
-<%= simple_form_for(@patient, url: practice_department_patients_path) do |f| %>
-  <%= render 'form_fields', f: f %>
-  <%= f.submit 'Create patient' %>
-<% end %>

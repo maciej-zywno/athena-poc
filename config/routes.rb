@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :practices, only: [:index, :show] do
-    resources :departments, only: :show do
+    resources :departments, only: [:index, :show] do
       resources :patients do
         member do
           post :invite

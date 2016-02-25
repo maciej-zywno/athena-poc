@@ -1,0 +1,8 @@
+= content_for :header_title do
+  = "#{@patient.firstname} #{@patient.lastname} #{@patient.middlename}"
+
+- breadcrumb :patient, params[:practice_id], params[:department_id], params[:id]
+
+= @patient.patientid
+= @patient.firstname
+= @patient.lastname

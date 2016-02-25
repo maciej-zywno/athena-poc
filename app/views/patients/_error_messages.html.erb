@@ -1,4 +1,0 @@
-<% if @errors %>
-  <%= "Invalid fields: #{@errors['invalidfields'].join(',')}" if @errors['invalidfields'] && !@errors['invalidfields'].empty? %>
-  <%= "Error message: #{@errors['error']}" %>
-<% end %>
