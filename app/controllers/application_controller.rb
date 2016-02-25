@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
     if /AthenaHealth/.match(e.class.to_s)
       code = AthenaHealth::Error::ERROR_TYPES.key(e.class)
       redirect_to "/#{code}.html"
+    else
+      raise e
     end
   end
 
