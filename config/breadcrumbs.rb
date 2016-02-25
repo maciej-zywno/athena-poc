@@ -16,6 +16,11 @@ crumb :departments do |practice, departments|
   parent :practice, practice
 end
 
+crumb :providers do |practice|
+  link 'Providers', practice_providers_path(practice)
+  parent :practice, practice
+end
+
 crumb :department do |practice, department|
   link department, practice_department_path(practice, department)
   parent :departments, practice, department

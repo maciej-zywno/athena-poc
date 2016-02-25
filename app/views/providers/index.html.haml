@@ -1,0 +1,23 @@
+= content_for :header_title do
+  Providers
+
+- breadcrumb :providers, params[:practice_id]
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th ID
+      %th First name
+      %th Last name
+      %th Home department
+      %th Speciality
+      %th Type
+  %tbody
+    - @provider_collection.providers.each do |provider|
+      = render 'provider', provider: provider
+
+%ul.pagination.pull-right
+  %li.paginate_button.previous{ class: ("disabled" unless @provider_collection.previous) }
+    = link_to 'Previous', practice_providers_path(params[:practice_id], offset:  offset(@provider_collection.previous))
+  %li.paginate_button.next{ class: ("disabled" unless @provider_collection.next) }
+    = link_to 'Next', practice_providers_path(params[:practice_id], offset: offset(@provider_collection.next))
