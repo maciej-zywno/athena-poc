@@ -1,0 +1,5 @@
+= content_for :header_title do
+  = @treatment.id
+
+= link_to treatments_path(params[:id]) do
+  = render 'shared/resource_panel', title: 'Treatments', description: 'List of treatments', icon_class: 'fa-4x pe-7s-user'

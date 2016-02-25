@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :treatments, only: [:index, :show]
+
   %w( 401 404 422 500 ).each do |code|
     match code, to: 'errors#show', code: code, via: :all
   end

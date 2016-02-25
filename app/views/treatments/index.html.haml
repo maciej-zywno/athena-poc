@@ -1,0 +1,12 @@
+= content_for :header_title do
+  Treatments
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th ID
+      %th Patient
+      %th Doctor
+  %tbody
+    - @treattment_collection.each do |treatment|
+      = render 'treatment', department: treatment
