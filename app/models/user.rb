@@ -18,4 +18,12 @@ class User < ActiveRecord::Base
   def athena_health_secret
     role == 'user' ? invited_by.athena_secret : athena_secret
   end
+
+  def treatments
+    case role
+      when :user then Treatment.where(patient_id: id)
+      when :doctor then Treatment.where(doctor_id: id)
+      else raise "the method is not implemented for '#{role}' role"
+    end
+  end
 end
