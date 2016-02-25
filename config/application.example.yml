@@ -23,3 +23,5 @@ DOMAIN_NAME: example.com
 ADMIN_NAME: First User
 ADMIN_EMAIL: user@example.com
 ADMIN_PASSWORD: changeme
+
+ALCHEMY_KEY: 71333cd7be3021471633035deccf0042aa42e4d0
