@@ -28,4 +28,6 @@ Rails.application.routes.draw do
   %w( 401 404 422 500 ).each do |code|
     match code, to: 'errors#show', code: code, via: :all
   end
+
+  match 'alexa', to: 'alexa#handle', via: :all
 end

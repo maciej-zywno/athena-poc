@@ -68,3 +68,10 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+
+# alexa
+gem 'alexa_verifier'
+gem 'alexa_rubykit'
+
+# alchemy
+gem 'alchemy-api-rb', require: 'alchemy_api'
