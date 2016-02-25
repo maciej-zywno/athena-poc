@@ -67,15 +67,7 @@ class PatientsController < ApplicationController
   end
 
   def invite
-    InviteUserService.call(
-      attributes: {
-        email: @patient.email,
-        name: @patient.fullname,
-        patient_id: @patient.patientid,
-        role: :patient
-      },
-      invited_by: current_user
-    )
+    invite_patient
 
     redirect_to practice_department_patients_path(
       params[:practice_id],
@@ -89,6 +81,18 @@ class PatientsController < ApplicationController
     @patient = athena_health_client.find_patient(
       practice_id: params[:practice_id],
       patient_id: params[:id]
+    )
+  end
+
+  def invite_patient
+    InviteUserService.call(
+      attributes: {
+        email: @patient.email,
+        name: @patient.fullname,
+        patient_id: @patient.patientid,
+        role: :patient
+      },
+      invited_by: current_user
     )
   end
 
