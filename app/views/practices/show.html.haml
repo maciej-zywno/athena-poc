@@ -5,4 +5,7 @@
 
 .row
   = link_to practice_departments_path(params[:id]) do
-    = render 'shared/resource_panel', title: 'Departments', description: 'List of practice departments', icon_class: 'pe-7s-portfolio'
+    = render 'shared/resource_panel', title: 'Departments', description: 'List of practice departments', icon_class: 'fa-4x pe-7s-portfolio', icon_class: 'fa fa-hospital-o fa-4x'
+
+  = link_to practice_providers_path(params[:id]) do
+    = render 'shared/resource_panel', title: 'Providers', description: 'List of practice providers', icon_class: 'fa fa-user-md fa-4x'
