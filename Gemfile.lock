@@ -39,7 +39,7 @@ GEM
     addressable (2.4.0)
     arel (6.0.3)
     ast (2.2.0)
-    athena_health (0.8.0)
+    athena_health (0.8.2)
       activemodel
       typhoeus
       virtus
@@ -364,7 +364,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  athena_health (~> 0.8.0)
+  athena_health (~> 0.8.2)
   better_errors
   bootstrap-sass
   byebug

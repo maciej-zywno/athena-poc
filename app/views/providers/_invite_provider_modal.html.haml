@@ -1,0 +1,13 @@
+.text-center
+  .modal.fade{id: "invite-provider-#{provider_id}", 'aria-hidden': true, role: 'dialog', tabindex: -1}
+    .modal-dialog.modal-sm
+      .modal-content
+        .color-line
+        .modal-header.text-center
+          %h4.modal-title Invite provider
+        = simple_form_for(:invite_provider, url: invite_practice_provider_path(params[:practice_id], provider_id)) do |f|
+          .modal-body
+            = f.input :email, placeholder: 'example@gmail.com'
+          .modal-footer
+            = f.submit 'Invite', class: 'btn btn-primary'
+            %button.btn.btn-default{'data-dismiss': 'modal', type: 'button'} Close

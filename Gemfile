@@ -7,7 +7,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
-gem 'athena_health', '~> 0.8.0'
+gem 'athena_health', '~> 0.8.2'
 gem 'font-awesome-rails'
 gem 'gretel'
 

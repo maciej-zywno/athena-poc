@@ -67,9 +67,17 @@ class PatientsController < ApplicationController
   end
 
   def invite
-    patient_fullname = "#{@patient.firstname} #{@patient.lastname} #{@patient.middlename}"
-    User.invite!({ email: @patient.email, name: patient_fullname, patient_id: @patient.patientid }, current_user)
-    redirect_to practice_department_path(params[:practice_id], params[:department_id]), notice: 'Patient invited'
+    if User.find_by_patient_id(@patient.patientid)
+      flash[:error] = 'Patient has been invited in the past'
+    else
+      invite_patient
+      flash[:notice] = 'Patient invited'
+    end
+
+    redirect_to practice_department_patients_path(
+      params[:practice_id],
+      params[:department_id]
+    )
   end
 
   private
@@ -78,6 +86,18 @@ class PatientsController < ApplicationController
     @patient = athena_health_client.find_patient(
       practice_id: params[:practice_id],
       patient_id: params[:id]
+    )
+  end
+
+  def invite_patient
+    InviteUserService.call(
+      attributes: {
+        email: @patient.email,
+        name: @patient.fullname,
+        patient_id: @patient.patientid,
+        role: :patient
+      },
+      invited_by: current_user
     )
   end
 
