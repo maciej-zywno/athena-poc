@@ -1,0 +1,9 @@
+= content_for :header_title do
+  Edit patient
+
+- breadcrumb :edit_patient, params[:practice_id], params[:department_id]
+
+= render 'error_messages'
+= simple_form_for(@patient, url: practice_department_patient_path, method: :put) do |f|
+  = render 'form_fields', f: f
+  = f.submit 'Update patient', class: 'btn btn-primary'

@@ -1,0 +1,44 @@
+= content_for :header_title do
+  Departments
+
+- breadcrumb :departments, params[:practice_id], params[:id]
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th ID
+      %th State
+      %th City
+      %th Provider group
+      %th Address
+      %th Clinicals
+      %th Patient department name
+      %th Name
+      %th Place of service type
+      %th Phone
+      %th Zip
+  %tbody
+    - @department_collection.departments.each do |department|
+      %tr
+        %td
+          = link_to department.departmentid, practice_department_path(params[:practice_id], department.departmentid)
+        %td
+          = department.state
+        %td
+          = department.city
+        %td
+          = department.providergroupname
+        %td
+          = department.address
+        %td
+          = department.clinicals
+        %td
+          = department.patientdepartmentname
+        %td
+          = department.name
+        %td
+          = department.placeofservicetypename
+        %td
+          = department.phone
+        %td
+          = department.zip

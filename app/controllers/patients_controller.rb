@@ -2,6 +2,14 @@ class PatientsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_patient, only: [:show, :edit, :invite]
 
+  def index
+    @patient_collection = athena_health_client.all_patients(
+      practice_id: params[:practice_id],
+      department_id: params[:department_id],
+      params: { offset: params[:offset] }
+    )
+  end
+
   def new
     @patient = AthenaHealth::Patient.new
   end
@@ -19,7 +27,10 @@ class PatientsController < ApplicationController
       @errors = response
       render :new
     else
-      redirect_to practice_department_path(params[:practice_id], params[:department_id]), notice: 'Patient created'
+      redirect_to practice_department_patients_path(
+        params[:practice_id],
+        params[:department_id]
+      ), notice: 'Patient created'
     end
   end
 
@@ -36,13 +47,23 @@ class PatientsController < ApplicationController
       @errors = response
       render :edit
     else
-      redirect_to practice_department_path(params[:practice_id], params[:department_id]), notice: 'Patient updated'
+      redirect_to practice_department_patients_path(
+        params[:practice_id],
+        params[:department_id]
+      ), notice: 'Patient updated'
     end
   end
 
   def destroy
-    athena_health_client.delete_patient(practice_id: params[:practice_id], patient_id: params[:id])
-    redirect_to practice_department_path(params[:practice_id], params[:department_id]), notice: 'Patient destroyed'
+    athena_health_client.delete_patient(
+      practice_id: params[:practice_id],
+      patient_id: params[:id]
+    )
+
+    redirect_to practice_department_path(
+      params[:practice_id],
+      params[:department_id]
+    ), notice: 'Patient destroyed'
   end
 
   def invite

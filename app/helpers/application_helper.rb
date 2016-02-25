@@ -1,6 +1,6 @@
 module ApplicationHelper
   def offset(str)
-    CGI::parse(str)['offset'].join('')
+    CGI::parse(str)['offset'].join('') if str
   end
 
   def alert_class_for(flash_type)

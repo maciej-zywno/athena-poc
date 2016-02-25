@@ -1,0 +1,21 @@
+= content_for :header_title do
+  Practices
+- breadcrumb :practices
+%table.table.table-striped
+  %thead
+    %tr
+      %th ID
+      %th Name
+      %th Communicator
+      %th Coordinator sender
+      %th Coordinator receiver
+      %th Collector
+  %tbody
+    - @practice_collection.practices.each do |practice|
+      %tr
+        %td= practice.practiceid
+        %td= link_to practice.name, practice_path(id: practice.practiceid)
+        %td= practice.hascommunicator
+        %td= practice.iscoordinatorsender
+        %td= practice.iscoordinatorreceiver
+        %td= practice.hascollector

@@ -1,0 +1,8 @@
+= content_for :header_title do
+  = @practice.name
+
+- breadcrumb :practice, params[:id]
+
+.row
+  = link_to practice_departments_path(params[:id]) do
+    = render 'shared/resource_panel', title: 'Departments', description: 'List of practice departments', icon_class: 'pe-7s-portfolio'
