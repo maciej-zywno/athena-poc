@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def treatments
+    logger.info role
     case role
       when 'admin' then Treatment.all
       when 'user' then Treatment.where(patient_id: id)
