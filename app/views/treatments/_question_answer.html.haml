@@ -6,6 +6,6 @@
   %td
     = answer.answer
   %td
-    = answer.alchemy.keywords
+    = answer.alchemy.try(:keywords)
   %td
-    = answer.alchemy.sentiment
+    = answer.alchemy.try(:sentiment)
