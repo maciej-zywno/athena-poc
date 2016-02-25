@@ -13,6 +13,6 @@ module ApplicationHelper
   end
 
   def is_active?(controller)
-    "active" if controller == params[:controller]
+    "active" if controller.include?(params[:controller])
   end
 end
