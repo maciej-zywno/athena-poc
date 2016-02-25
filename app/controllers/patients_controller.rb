@@ -67,12 +67,17 @@ class PatientsController < ApplicationController
   end
 
   def invite
-    invite_patient
+    if User.find_by_patient_id(@patient.patientid)
+      flash[:error] = 'Patient has been invited in the past'
+    else
+      invite_patient
+      flash[:notice] = 'Patient invited'
+    end
 
     redirect_to practice_department_patients_path(
       params[:practice_id],
       params[:department_id]
-    ), notice: 'Patient invited'
+    )
   end
 
   private
