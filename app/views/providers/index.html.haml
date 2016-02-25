@@ -12,6 +12,7 @@
       %th Home department
       %th Speciality
       %th Type
+      %th
   %tbody
     - @provider_collection.providers.each do |provider|
       = render 'provider', provider: provider
