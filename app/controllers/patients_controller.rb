@@ -67,9 +67,20 @@ class PatientsController < ApplicationController
   end
 
   def invite
-    patient_fullname = "#{@patient.firstname} #{@patient.lastname} #{@patient.middlename}"
-    User.invite!({ email: @patient.email, name: patient_fullname, patient_id: @patient.patientid }, current_user)
-    redirect_to practice_department_path(params[:practice_id], params[:department_id]), notice: 'Patient invited'
+    InviteUserService.call(
+      attributes: {
+        email: @patient.email,
+        name: @patient.fullname,
+        patient_id: @patient.patientid,
+        role: :patient
+      },
+      invited_by: current_user
+    )
+
+    redirect_to practice_department_patients_path(
+      params[:practice_id],
+      params[:department_id]
+    ), notice: 'Patient invited'
   end
 
   private
