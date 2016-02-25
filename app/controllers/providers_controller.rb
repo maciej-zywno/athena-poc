@@ -13,19 +13,16 @@ class ProvidersController < ApplicationController
   end
 
   def invite
-    InviteUserService.call(
-      attributes: {
-        email: invite_provider_params[:email],
-        name: @provider.fullname,
-        athena_provider_id: @provider.providerid,
-        role: :doctor
-      },
-      invited_by: current_user
-    )
+    if User.find_by_athena_provider_id(@provider.providerid)
+      flash[:error] = 'Provider has been invited in the past'
+    else
+      invite_provider
+      flash[:notice] = 'Provider invited'
+    end
 
     redirect_to practice_providers_path(
       params[:practice_id],
-    ), notice: 'Provider invited'
+    )
   end
 
   private
@@ -34,6 +31,18 @@ class ProvidersController < ApplicationController
     @provider = athena_health_client.find_provider(
       practice_id: params[:practice_id],
       provider_id: params[:id]
+    )
+  end
+
+  def invite_provider
+    InviteUserService.call(
+      attributes: {
+        email: invite_provider_params[:email],
+        name: @provider.fullname,
+        athena_provider_id: @provider.providerid,
+        role: :doctor
+      },
+      invited_by: current_user
     )
   end
 
