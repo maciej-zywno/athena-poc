@@ -1,0 +1,18 @@
+= content_for :header_title do
+  Insurance Packages
+- breadcrumb :insurance_packages, params[:practice_id]
+
+%table.table.table-striped.table-bordered.table-hover
+  %thead
+    %tr
+      %th Name
+      %th Percentage
+      %th phone
+      %th Product Type Name
+      %th State
+      %th Zip
+      %th City
+      %th Address
+  %tbody
+    - @top_insurance_collection.insurancepackages.each do |insurance_package|
+      = render 'insurance_package', insurance_package: insurance_package
