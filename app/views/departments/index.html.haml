@@ -20,3 +20,9 @@
   %tbody
     - @department_collection.departments.each do |department|
       = render 'department', department: department
+
+%ul.pagination.pull-right
+  %li.paginate_button.previous{ class: ("disabled" unless @department_collection.previous) }
+    = link_to 'Previous', practice_departments_path(params[:practice_id], offset:  offset(@department_collection.previous))
+  %li.paginate_button.next{ class: ("disabled" unless @department_collection.next) }
+    = link_to 'Next', practice_departments_path(params[:practice_id], offset: offset(@department_collection.next))

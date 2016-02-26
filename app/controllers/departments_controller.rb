@@ -3,7 +3,8 @@ class DepartmentsController < ApplicationController
 
   def index
     @department_collection = athena_health_client.all_departments(
-      practice_id: params[:practice_id]
+      practice_id: params[:practice_id],
+      params: { limit: 10, offset: params[:offset] }
     )
   end
 
