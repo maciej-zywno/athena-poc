@@ -21,6 +21,11 @@ crumb :providers do |practice|
   parent :practice, practice
 end
 
+crumb :insurance_packages do |practice|
+  link 'Insurance Packages', practice_insurance_packages_path(practice)
+  parent :practice, practice
+end
+
 crumb :department do |practice, department|
   link department, practice_department_path(practice, department)
   parent :departments, practice, department

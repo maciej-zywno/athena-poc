@@ -9,3 +9,6 @@
 
   = link_to practice_providers_path(params[:id]) do
     = render 'shared/resource_panel', title: 'Providers', description: 'List of practice providers', icon_class: 'fa fa-user-md fa-4x'
+
+  = link_to practice_insurance_packages_path(params[:id]) do
+    = render 'shared/resource_panel', title: 'Insurance Packages', description: 'List of insurance packages', icon_class: 'pe-7s-portfolio fa-4x'
