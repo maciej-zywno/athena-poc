@@ -1,0 +1,7 @@
+%tr
+  %td= practice.practiceid
+  %td= link_to practice.name, practice_path(id: practice.practiceid)
+  %td= I18n.t(practice.hascommunicator.to_s)
+  %td= I18n.t(practice.iscoordinatorsender.to_s)
+  %td= I18n.t(practice.iscoordinatorreceiver.to_s)
+  %td= I18n.t(practice.hascollector.to_s)

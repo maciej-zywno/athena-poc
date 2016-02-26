@@ -12,10 +12,4 @@
       %th Collector
   %tbody
     - @practice_collection.practices.each do |practice|
-      %tr
-        %td= practice.practiceid
-        %td= link_to practice.name, practice_path(id: practice.practiceid)
-        %td= practice.hascommunicator
-        %td= practice.iscoordinatorsender
-        %td= practice.iscoordinatorreceiver
-        %td= practice.hascollector
+      = render 'practice', practice: practice
