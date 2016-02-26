@@ -5,9 +5,10 @@
   %td= patient.email
   %td= patient.dob
   %td= patient.address1
-  %td= patient.status
-  - unless User.find_by_patient_id(patient.patientid)
-    %td= link_to 'Invite', invite_practice_department_patient_path(params[:practice_id], params[:department_id], patient.patientid), method: :post
-  %td= link_to 'Delete', practice_department_patient_path(params[:practice_id], params[:department_id], patient.patientid), method: :delete
-  %td= link_to 'Show', practice_department_patient_path(params[:practice_id], params[:department_id], patient.patientid)
-  %td= link_to 'Edit', edit_practice_department_patient_path(params[:practice_id], params[:department_id], patient.patientid)
+  %td= patient.status.humanize
+  %td
+    - unless User.find_by_patient_id(patient.patientid)
+      = link_to 'Invite', invite_practice_department_patient_path(params[:practice_id], params[:department_id], patient.patientid), method: :post, class: 'btn-sm btn-success'
+    = link_to 'Delete', practice_department_patient_path(params[:practice_id], params[:department_id], patient.patientid), method: :delete, class: 'btn-sm btn-danger'
+    = link_to 'Show', practice_department_patient_path(params[:practice_id], params[:department_id], patient.patientid), class: 'btn-sm btn-info'
+    = link_to 'Edit', edit_practice_department_patient_path(params[:practice_id], params[:department_id], patient.patientid), class: 'btn-sm btn-primary'
