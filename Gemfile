@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'athena_health', '~> 0.8.3'
 gem 'font-awesome-rails'
 gem 'gretel'
+gem 'twilio-ruby'
 
 group :development, :test do
   gem 'byebug'
