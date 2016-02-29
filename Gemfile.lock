@@ -17,6 +17,12 @@ GIT
       actionmailer (>= 3.2.6, < 5)
       devise (>= 3.2.0)
 
+GIT
+  remote: git://github.com/thoughtbot/high_voltage.git
+  revision: 32ae7427ebd752de421322a7876adada445aad1a
+  specs:
+    high_voltage (2.4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -169,7 +175,6 @@ GEM
       haml (>= 4.0.6, < 5.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
-    high_voltage (2.4.0)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
@@ -410,7 +415,7 @@ DEPENDENCIES
   guard-rails
   guard-rspec
   haml-rails
-  high_voltage
+  high_voltage!
   html2haml
   hub
   jbuilder (~> 2.0)
