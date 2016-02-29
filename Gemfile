@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 
-gem 'rails', '4.2.5'
+gem 'rails', '5.0.0.beta3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -21,8 +21,8 @@ group :development do
 end
 
 gem 'bootstrap-sass'
-gem 'devise'
-gem 'devise_invitable'
+gem 'devise', github: 'plataformatec/devise'
+gem 'devise_invitable', github: 'scambra/devise_invitable'
 gem 'figaro'
 gem 'haml-rails'
 gem 'high_voltage'
