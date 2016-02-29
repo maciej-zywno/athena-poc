@@ -284,8 +284,6 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
-    rb-fchange (0.0.6)
-      ffi
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -429,9 +427,6 @@ DEPENDENCIES
   rails (= 5.0.0.beta3)
   rails_12factor
   rails_layout
-  rb-fchange
-  rb-fsevent
-  rb-inotify
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
