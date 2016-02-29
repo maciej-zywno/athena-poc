@@ -31,4 +31,5 @@ Rails.application.routes.draw do
   end
 
   match 'alexa', to: 'alexa#handle', via: :all
+  resources :text_messages, only: [:new, :create]
 end
