@@ -1,3 +1,8 @@
 - if @errors
-  = "Invalid fields: #{@errors['invalidfields'].join(',')}" if @errors['invalidfields'] && !@errors['invalidfields'].empty?
-  = "Error message: #{@errors['error']}"
+  #error_explanation
+    .alert.alert-danger
+      = @errors['error']
+    - if @errors['invalidfields'] && !@errors['invalidfields'].empty?
+      %ul
+        - @errors['invalidfields'].each do |invalid_field|
+          %li= invalid_field.humanize

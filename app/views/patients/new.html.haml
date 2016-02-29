@@ -3,8 +3,9 @@
 
 - breadcrumb :new_patient, params[:practice_id], params[:department_id]
 
-= render 'error_messages'
-
-= simple_form_for(@patient, url: practice_department_patients_path) do |f|
-  = render 'form_fields', f: f
-  = f.submit 'Create patient', class: 'btn btn-primary'
+.row
+  .col-md-4
+    = render 'error_messages'
+    = simple_form_for(@patient, url: practice_department_patients_path) do |f|
+      = render 'form_fields', f: f
+      = f.submit 'Create patient', class: 'btn btn-primary'
