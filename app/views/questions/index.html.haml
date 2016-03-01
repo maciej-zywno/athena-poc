@@ -9,7 +9,12 @@
       %tr
         %th ID
         %th Question
+        %th Answer type
+        %th
     %tbody
       = render @questions
 - else
   = render 'shared/no_records', text: 'There is no questions for this treatment.'
+
+%br/
+= link_to 'New Question', new_treatment_question_path(@treatment.id), class: 'btn btn-primary'

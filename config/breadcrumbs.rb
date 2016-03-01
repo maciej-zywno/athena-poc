@@ -20,6 +20,11 @@ crumb :questions do |treatment|
   parent :treatment, treatment
 end
 
+crumb :new_question do |treatment|
+  link 'New Question', treatment_questions_path(treatment)
+  parent :questions, treatment
+end
+
 crumb :practice do |practice|
   link practice, practice_path(practice)
   parent :practices

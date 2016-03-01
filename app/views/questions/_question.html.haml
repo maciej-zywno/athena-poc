@@ -3,3 +3,9 @@
     = link_to question.id, [question.treatment, question]
   %td
     = question.question
+  %td
+    = question.answer_type.humanize
+  %td
+    = link_to 'Edit', edit_treatment_question_path(@treatment, question), class: 'btn-sm btn-primary'
+    = link_to 'Delete', treatment_question_path(@treatment, question), method: :delete, class: 'btn-sm btn-danger'
+
