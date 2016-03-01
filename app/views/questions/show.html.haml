@@ -3,7 +3,7 @@
 
 - if @question.number?
   .h1
-    = 'Here we will show the chart..'
+    = line_chart line_chart_data(@question.answers), options={}
 %table.table.table-striped
   %thead
     %tr

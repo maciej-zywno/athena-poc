@@ -16,3 +16,5 @@
 //= require icheck
 //= require homer/scripts
 //= require_tree .
+//= require Chart
+//= require excanvas

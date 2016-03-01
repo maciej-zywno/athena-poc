@@ -74,3 +74,6 @@ gem 'alexa_rubykit'
 
 # alchemy
 gem 'alchemy-api-rb', require: 'alchemy_api'
+
+# charts
+gem 'chartjs-ror'
