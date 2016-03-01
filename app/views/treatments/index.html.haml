@@ -3,12 +3,15 @@
 
 - breadcrumb :treatments
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th ID
-      %th Patient
-      %th Doctor
-      %th Problem
-  %tbody
-    = render @treatments
+- if @treatments.any?
+  %table.table.table-striped
+    %thead
+      %tr
+        %th ID
+        %th Patient
+        %th Doctor
+        %th Problem
+    %tbody
+      = render @treatments
+- else
+  = render 'shared/no_records', text: "You didn't have any associated treatments."
