@@ -11,5 +11,4 @@
       %th Doctor
       %th Problem
   %tbody
-    - @treatment_collection.each do |treatment|
-      = render 'treatment', treatment: treatment
+    = render @treatments

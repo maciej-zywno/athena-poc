@@ -1,6 +1,6 @@
-%tr
+%tr{'data-link' => treatment_path(treatment) }
   %td
-    = link_to treatment.id, treatment
+    = treatment.id
   %td
     = treatment.patient.name
   %td

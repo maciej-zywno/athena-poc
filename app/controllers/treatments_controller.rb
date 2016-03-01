@@ -2,7 +2,7 @@ class TreatmentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @treatment_collection = current_user.treatments
+    @treatments = current_user.treatments
   end
 
   def show
