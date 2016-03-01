@@ -14,6 +14,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  rescue_from Pundit::NotAuthorizedError, with: :render_unathorized_error
+
   private
 
   def athena_health_client
@@ -22,5 +24,9 @@ class ApplicationController < ActionController::Base
       key: current_user.athena_health_key,
       secret: current_user.athena_health_secret
     )
+  end
+
+  def render_unathorized_error
+    redirect_to '/401.html'
   end
 end
