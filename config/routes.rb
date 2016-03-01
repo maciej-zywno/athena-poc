@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :treatments, only: [:index, :show] do
-    resources :questions, only: [:show]
+    resources :questions, only: [:index, :show]
   end
 
   %w( 401 404 422 500 ).each do |code|

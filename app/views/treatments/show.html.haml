@@ -3,24 +3,26 @@
 
 - breadcrumb :treatment, @treatment.id
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th ID
-      %th Question
-  %tbody
-    - @treatment.questions.each do |question|
-      = render 'questions/question', question: question
+= link_to treatment_questions_path(params[:id]) do
+  = render 'shared/resource_panel', title: 'Questions', description: 'List of treatment questions', icon_class: 'fa-4x pe-7s-portfolio', icon_class: 'fa fa-question-circle fa-4x'
+/ %table.table.table-striped
+/   %thead
+/     %tr
+/       %th ID
+/       %th Question
+/   %tbody
+/     - @treatment.questions.each do |question|
+/       = render 'questions/question', question: question
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th ID
-      %th Date
-      %th Question
-      %th Answer
-      %th Alchemy - Keywords
-      %th Alchemy - Sentiment
-  %tbody
-    - @treatment.answers.each do |answer|
-      = render 'answers/answer', answer: answer
+/ %table.table.table-striped
+/   %thead
+/     %tr
+/       %th ID
+/       %th Date
+/       %th Question
+/       %th Answer
+/       %th Alchemy - Keywords
+/       %th Alchemy - Sentiment
+/   %tbody
+/     - @treatment.answers.each do |answer|
+/       = render 'answers/answer', answer: answer
