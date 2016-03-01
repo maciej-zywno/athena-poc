@@ -2,6 +2,8 @@
   %td
     = answer.id
   %td
+    = answer.created_at.strftime('%m/%d/%Y')
+  %td
     = answer.question.question
   %td
     = answer.answer
