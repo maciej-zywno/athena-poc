@@ -1,6 +1,6 @@
-%tr
+%tr{'data-link': treatment_question_path(@treatment, question)}
   %td
-    = link_to question.id, [question.treatment, question]
+    = question.id
   %td
     = question.question
   %td
