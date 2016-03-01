@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
   mount Upmin::Engine => '/admin'
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/inbox'
   end
+
+  # authenticate(:user) do
+  #   mount Sidekiq::Web, at: '/sidekiq'
+  # end
+
   root to: 'visitors#index'
+
   devise_for :users
   resources :users
 

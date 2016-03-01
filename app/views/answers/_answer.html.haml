@@ -6,7 +6,7 @@
   %td
     = answer.answer
   %td
-    = answer.alchemy.try(:keywords).map{|e| e['text']}
+    = alchemy_keywords(answer.alchemy)
   %td
-    = "#{answer.alchemy.try(:sentiment)['score']}, #{answer.alchemy.try(:sentiment)['type']}"
+    = alchemy_sentiment(answer.alchemy)
 

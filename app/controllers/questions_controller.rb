@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = @treatment.questions.build(question_params)
+    @question = @treatment.questions.build(risky_keywords_as_array(question_params))
     if @question.save
       redirect_to treatment_questions_path(@treatment), success: 'Question created succesfully'
     else
@@ -24,7 +24,8 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    if @question.update(question_params)
+    @question.risky_keywords_will_change!
+    if @question.update(risky_keywords_as_array(question_params))
       redirect_to treatment_questions_path(@treatment), success: 'Question updated succesfully'
     else
       render :edit
@@ -47,6 +48,14 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:question, :answer_type)
+    params.require(:question).permit(:question, :answer_type, :low_threshold, :high_threshold, :risky_keywords)
+  end
+
+  def risky_keywords_as_array(question_params)
+    question_params.merge(risky_keywords: to_array(question_params['risky_keywords']))
+  end
+
+  def to_array(risky_keywords_as_string)
+    risky_keywords_as_string.split(',').map(&:strip)
   end
 end

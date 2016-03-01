@@ -38,13 +38,30 @@ module ApplicationHelper
     }
   end
 
+  def alchemy_keywords(alchemy)
+    if alchemy && alchemy.keywords
+      alchemy.keywords.map{|e| e['text']}
+    else
+      nil
+    end
+
+  end
+
+  def alchemy_sentiment(alchemy)
+    if alchemy && alchemy.sentiment
+      "#{alchemy.sentiment['score']}, #{alchemy.sentiment['type']}"
+    else
+      nil
+    end
+  end
+
   private
 
     def extract_data_points(answers, data_type)
       if data_type == :answer
         answers.pluck(:answer)
       elsif data_type == :sentiment
-        answers.map{|answer| answer.alchemy.sentiment['score']}
+        answers.select{|answer| !answer.try(:alchemy).nil? }.map{|answer| answer.alchemy.sentiment['score']}
       else
         raise "unsupported data type: #{data_type}"
       end
