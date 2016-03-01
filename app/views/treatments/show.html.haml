@@ -1,5 +1,7 @@
 = content_for :header_title do
-  = "#{@treatment.id} #{@treatment.problem}"
+  = @treatment.problem
+
+- breadcrumb :treatment, @treatment.id
 
 %table.table.table-striped
   %thead

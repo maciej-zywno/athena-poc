@@ -10,6 +10,11 @@ crumb :treatments do
   link 'Treatments', treatments_path
 end
 
+crumb :treatment do |treatment|
+  link treatment, treatment_path(treatment)
+  parent :treatments
+end
+
 crumb :practice do |practice|
   link practice, practice_path(practice)
   parent :practices
