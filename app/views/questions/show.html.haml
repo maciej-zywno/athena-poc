@@ -3,14 +3,9 @@
 
 - breadcrumb :question, @treatment.id, @question.id
 
-- if @question.number?
-  = line_chart line_chart_data(@question.answers, :answer), options={}
-- elsif @question.string?
-  = line_chart line_chart_data(@question.answers, :sentiment), options={}
-- else
-  -# display no chart
-
 - if @question.answers.any?
+  = render 'chart'
+
   %table.table.table-striped
     %thead
       %tr

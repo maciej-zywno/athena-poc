@@ -1,0 +1,26 @@
+.hpanel
+  .panel-body
+    .row
+      .col-md-3.text-center
+        .small
+          %i.fa.fa-bolt
+          Answers count
+        %div
+          %h1.font-extra-bold.m-t-xl.m-b-xs
+            = @question.answers.count
+      .col-md-6
+        .flot-chart
+          - if @question.number?
+            = line_chart line_chart_data(@question.answers, :answer), options= { height: 200, width: 545 }
+          - elsif @question.string?
+            = line_chart line_chart_data(@question.answers, :sentiment), options= { height: 200, width: 545 }
+      .col-md-3.text-center
+        .small
+          %i.fa.fa-clock-o
+          Started
+        %div
+          %h1.font-extra-bold.m-t-xl.m-b-xs
+            = "#{time_ago_in_words(@question.answers.first.created_at)} ago"
+        .small.m-t-xl
+          %i.fa.fa-clock-o
+          = "Last active in #{@question.answers.last.created_at}"
