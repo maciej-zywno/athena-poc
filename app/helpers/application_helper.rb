@@ -16,10 +16,10 @@ module ApplicationHelper
     "active" if controller.include?(params[:controller])
   end
 
-  def line_chart_data(answers)
+  def line_chart_data(answers, data_type)
     answers_ordered = answers.order(:created_at)
     labels = answers_ordered.pluck(:created_at).map{|date| date.strftime('%m/%d/%Y')}
-    data_points = answers_ordered.pluck(:answer)
+    data_points = extract_data_points(answers_ordered, data_type)
 
     {
         labels: labels,
@@ -37,4 +37,16 @@ module ApplicationHelper
         ]
     }
   end
+
+  private
+
+    def extract_data_points(answers, data_type)
+      if data_type == :answer
+        answers.pluck(:answer)
+      elsif data_type == :sentiment
+        answers.map{|answer| answer.alchemy.sentiment['score']}
+      else
+        raise "unsupported data type: #{data_type}"
+      end
+    end
 end
