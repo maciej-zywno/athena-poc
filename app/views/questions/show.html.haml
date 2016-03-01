@@ -1,0 +1,15 @@
+= content_for :header_title do
+  = "#{@question.id} #{@question.question}"
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th ID
+      %th Date
+      %th Question
+      %th Answer
+      %th Alchemy - Keywords
+      %th Alchemy - Sentiment
+  %tbody
+    - @question.answers.each do |answer|
+      = render 'answers/answer', answer: answer
