@@ -1,5 +1,6 @@
 class Answer < ActiveRecord::Base
-  after_commit :fill_alchemy_keywords_and_sentiment
+  after_commit :fill_alchemy_keywords_and_sentiment, if: Proc.new { |answer| answer.question.string? }
+
 
   has_one :alchemy
   belongs_to :question
