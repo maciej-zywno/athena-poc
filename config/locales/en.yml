@@ -23,3 +23,9 @@ en:
   hello: "Hello world"
   'true': 'Yes'
   'false': 'No'
+  views:
+    pagination:
+      first: 'First'
+      last: 'Last'
+      previous: 'Previous'
+      next: 'Next'

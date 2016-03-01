@@ -32,6 +32,7 @@ gem 'pg'
 gem 'pundit'
 gem 'simple_form'
 gem 'upmin-admin'
+gem 'kaminari', github: 'amatsuda/kaminari'
 
 group :development do
   gem 'letter_opener'
