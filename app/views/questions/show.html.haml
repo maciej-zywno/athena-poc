@@ -1,6 +1,8 @@
 = content_for :header_title do
   = "#{@question.id} #{@question.question}"
 
+- if @question.answer_type.number?
+  = 'Here we will show the chart..'
 %table.table.table-striped
   %thead
     %tr
