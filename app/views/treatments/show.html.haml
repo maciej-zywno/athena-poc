@@ -20,6 +20,5 @@
       %th Alchemy - Keywords
       %th Alchemy - Sentiment
   %tbody
-    - @treatment.questions.each do |question|
-      - question.answers.each do |answer|
-        = render 'answers/answer', answer: answer
+    - @treatment.answers.each do |answer|
+      = render 'answers/answer', answer: answer
