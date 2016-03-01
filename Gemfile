@@ -78,3 +78,9 @@ gem 'alchemy-api-rb', require: 'alchemy_api'
 
 # charts
 gem 'chartjs-ror'
+
+# background processing - not ready for Rails 5 yet
+# gem 'redis-actionpack', github: 'marcroberts/redis-actionpack', branch: 'patch-1'
+# gem 'redis-rails', github: 'redis-store/redis-rails', branch: 'master'
+# gem 'sidekiq', branch: 'rails5'
+# gem 'sidekiq-failures', github: 'mhfs/sidekiq-failures'

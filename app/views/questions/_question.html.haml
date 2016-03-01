@@ -6,6 +6,12 @@
   %td
     = question.answer_type.humanize
   %td
+    = question.risky_keywords
+  %td
+    = question.low_threshold
+  %td
+    = question.high_threshold
+  %td
     = link_to 'Edit', edit_treatment_question_path(@treatment, question), class: 'btn-sm btn-primary'
     = link_to 'Delete', treatment_question_path(@treatment, question), method: :delete, class: 'btn-sm btn-danger'
 

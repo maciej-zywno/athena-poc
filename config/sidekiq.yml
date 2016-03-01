@@ -1,0 +1,7 @@
+---
+:verbose: true
+:concurrency: 2
+:queues:
+  - process_answer
+development:
+    :logfile: ./log/sidekiq.log
