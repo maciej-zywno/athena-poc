@@ -2,8 +2,11 @@
   = "#{@question.id} #{@question.question}"
 
 - if @question.number?
-  .h1
-    = 'Here we will show the chart..'
+  = line_chart line_chart_data(@question.answers, :answer), options={}
+- elsif @question.string?
+  = line_chart line_chart_data(@question.answers, :sentiment), options={}
+- else
+  -# display no chart
 %table.table.table-striped
   %thead
     %tr

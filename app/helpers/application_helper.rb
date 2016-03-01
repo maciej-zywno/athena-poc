@@ -15,4 +15,38 @@ module ApplicationHelper
   def is_active?(controller)
     "active" if controller.include?(params[:controller])
   end
+
+  def line_chart_data(answers, data_type)
+    answers_ordered = answers.order(:created_at)
+    labels = answers_ordered.pluck(:created_at).map{|date| date.strftime('%m/%d/%Y')}
+    data_points = extract_data_points(answers_ordered, data_type)
+
+    {
+        labels: labels,
+        datasets: [
+            {
+                label: "My First dataset",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: data_points
+            }
+        ]
+    }
+  end
+
+  private
+
+    def extract_data_points(answers, data_type)
+      if data_type == :answer
+        answers.pluck(:answer)
+      elsif data_type == :sentiment
+        answers.map{|answer| answer.alchemy.sentiment['score']}
+      else
+        raise "unsupported data type: #{data_type}"
+      end
+    end
 end
