@@ -5,6 +5,15 @@
   %thead
     %tr
       %th ID
+      %th Question
+  %tbody
+    - @treatment.questions.each do |question|
+      = render 'questions/question', question: question
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th ID
       %th Date
       %th Question
       %th Answer
