@@ -4,10 +4,4 @@
   %td
     = answer.created_at.strftime('%m/%d/%Y')
   %td
-    = answer.question.question
-  %td
-    = answer.answer
-  %td
-    = answer.alchemy.try(:keywords)
-  %td
-    = answer.alchemy.try(:sentiment)
+    = answer.question.answer

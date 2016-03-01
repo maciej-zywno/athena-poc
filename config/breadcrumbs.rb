@@ -20,6 +20,11 @@ crumb :questions do |treatment|
   parent :treatment, treatment
 end
 
+crumb :question do |treatment, question|
+  link question, treatment_questions_path(treatment, question)
+  parent :questions, treatment
+end
+
 crumb :new_question do |treatment|
   link 'New Question', treatment_questions_path(treatment)
   parent :questions, treatment
@@ -28,6 +33,12 @@ end
 crumb :edit_question do |treatment|
   link 'Edit Question', treatment_questions_path(treatment)
   parent :questions, treatment
+end
+
+crumb :answers do |question|
+  link 'Questions', treatment_questions_path(question.treatment)
+  link question.id, treatment_question_path(question.treatment, question)
+  link 'Answers', question_answers_path(question)
 end
 
 crumb :practice do |practice|
