@@ -2,6 +2,8 @@
   %td
     = link_to treatment.id, treatment
   %td
-    = treatment.patient_id
+    = treatment.patient.name
   %td
-    = treatment.doctor_id
+    = treatment.doctor.name
+  %td
+    = treatment.problem
