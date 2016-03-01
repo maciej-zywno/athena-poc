@@ -3,5 +3,21 @@
 
 - breadcrumb :question, @treatment.id, @question.id
 
-= link_to question_answers_path(@question) do
-  = render 'shared/resource_panel', title: 'Answers', description: 'List of question answers', icon_class: 'pe-7s-note fa-4x'
+- if @question.number?
+  = line_chart line_chart_data(@question.answers, :answer), options={}
+- elsif @question.string?
+  = line_chart line_chart_data(@question.answers, :sentiment), options={}
+- else
+  -# display no chart
+
+- if @question.answers.any?
+  %table.table.table-striped
+    %thead
+      %tr
+        %th ID
+        %th Date
+        %th Answer
+    %tbody
+      = render @question.answers
+- else
+  = render 'shared/no_records', text: 'There is no answers for this question.'

@@ -3,14 +3,3 @@
 
 - breadcrumb :answers, @question
 
-- if @answers.any?
-  %table.table.table-striped
-    %thead
-      %tr
-        %th ID
-        %th Date
-        %th Answer
-    %tbody
-      = render @answers
-- else
-  = render 'shared/no_records', text: 'There is no answers for this question.'
