@@ -28,10 +28,6 @@ Rails.application.routes.draw do
     resources :questions
   end
 
-  resources :questions, only: [] do
-    resources :answers, only: :index
-  end
-
   %w( 401 404 422 500 ).each do |code|
     match code, to: 'errors#show', code: code, via: :all
   end

@@ -35,12 +35,6 @@ crumb :edit_question do |treatment|
   parent :questions, treatment
 end
 
-crumb :answers do |question|
-  link 'Questions', treatment_questions_path(question.treatment)
-  link question.id, treatment_question_path(question.treatment, question)
-  link 'Answers', question_answers_path(question)
-end
-
 crumb :practice do |practice|
   link practice, practice_path(practice)
   parent :practices
