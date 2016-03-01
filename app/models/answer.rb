@@ -2,6 +2,7 @@ class Answer < ActiveRecord::Base
   after_commit :fill_alchemy_keywords_and_sentiment
 
   has_one :alchemy
+  belongs_to :question
 
   private
 
