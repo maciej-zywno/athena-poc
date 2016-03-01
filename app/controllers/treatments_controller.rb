@@ -7,5 +7,6 @@ class TreatmentsController < ApplicationController
 
   def show
     @treatment = Treatment.find(params[:id])
+    authorize @treatment, :show?
   end
 end
