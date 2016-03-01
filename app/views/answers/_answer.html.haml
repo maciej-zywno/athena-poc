@@ -8,5 +8,5 @@
   %td
     = answer.alchemy.try(:keywords).map{|e| e['text']}
   %td
-    = answer.alchemy.try(:sentiment)
+    = "#{a.alchemy.try(:sentiment)['score']}, #{a.alchemy.try(:sentiment)['type']}"
 
