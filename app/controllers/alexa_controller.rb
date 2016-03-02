@@ -2,12 +2,7 @@ class AlexaController < ApplicationController
   skip_before_action :verify_authenticity_token, :authenticate_user!
 
   def handle
-    Alexa::Verifier.verify(
-      signature: request.headers['Signature'],
-      signature_url: request.headers['SignatureCertChainUrl'],
-      body: request.body.read
-    )
-
+    Alexa::Verifier.verify(request: request)
     request_body = request.body.read.to_s
     request_body_parsed = JSON.parse(request_body)
     log_request(request_body_parsed)
