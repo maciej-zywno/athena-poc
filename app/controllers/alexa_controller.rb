@@ -47,10 +47,10 @@ class AlexaController < ApplicationController
       next_question = next_question(request.session.attributes['current_question'])
 
       response = AlexaRubykit::Response.new
-      response.add_speech(next_question)
-      response.add_session_attribute('current_question', next_question)
-      response.add_session_attribute(request.session.attributes['current_question'], request.slots['Answer']['value'])
-      response.build_response(next_question.nil?)
+      response.add_speech(@questions.first)
+      response.add_session_attribute('current_question', @questions.first)
+      response.add_session_attribute(@questions.first, request.slots['Answer']['value'])
+      response.build_response(@questions.first.nil?)
     end
 
     def handle_launch_request(request)
@@ -58,6 +58,7 @@ class AlexaController < ApplicationController
       response = AlexaRubykit::Response.new
       response.add_speech(@questions.first)
       response.add_session_attribute('current_question', @questions.first)
+      @questions.shift
       response.build_response(session_end = false)
     end
 
