@@ -114,7 +114,7 @@ class AlexaController < ApplicationController
       logger.info "all_questions=#{all_questions.inspect}"
       logger.info "answered_questions=#{answered_questions.inspect}"
       answered_ids = answered_questions.map(&:first)
-      all_questions.any?{|e| !answered_ids.include?(e[0])}
+      all_questions.all?{|e| answered_ids.include?(e[0])}
     end
 
     def any_not_answered_question(all_questions, answered_questions)
