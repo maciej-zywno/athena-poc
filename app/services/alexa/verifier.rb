@@ -1,9 +1,9 @@
 class Alexa::Verifier
-  def self.verify(request:)
+  def self.verify(headers:, body:)
     AlexaVerifier.new.verify!(
-      request.headers['SignatureCertChainUrl'],
-      request.headers['Signature'],
-      request.body.read
+      headers['SignatureCertChainUrl'],
+      headers['Signature'],
+      body
     )
   end
 end
