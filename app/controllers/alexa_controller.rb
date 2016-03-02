@@ -43,7 +43,6 @@ class AlexaController < ApplicationController
       current_question_id, current_question_text = request.session.attributes['current_question']
       current_question_answer = request.slots['Answer']['value']
       new_answered_questions = current_answered_questions << [current_question_id, current_question_answer]
-      request.session.attributes['answered_questions'] = new_answered_questions
 
       all_questions_answered = all_questions_answered?(request.session.attributes['questions'],
                                                        request.session.attributes['answered_questions'])
@@ -60,7 +59,9 @@ class AlexaController < ApplicationController
         logger.info "NEXT_QUESTION=#{next_question}"
         response.add_speech(next_question)
         response.add_session_attribute('current_question', next_question)
-
+        response.add_session_attribute('answered_questions', new_answered_questions)
+        question_id_and_questions_pairs = Treatment.last.questions.pluck(:id, :question)
+        response.add_session_attribute('questions', question_id_and_questions_pairs)
         response.build_response(session_end = all_questions_answered)
       end
     end
