@@ -2,8 +2,13 @@ class AlexaController < ApplicationController
   skip_before_action :verify_authenticity_token, :authenticate_user!
 
   def handle
+    Alexa::Verifier.verify(
+      signature: request.headers['Signature'],
+      signature_url: request.headers['SignatureCertChainUrl'],
+      body: request.body.read
+    )
+
     request_body = request.body.read.to_s
-    verify_correct_alexa_request!(request_body)
     request_body_parsed = JSON.parse(request_body)
     log_request(request_body_parsed)
 
@@ -89,16 +94,6 @@ class AlexaController < ApplicationController
       response.add_session_attribute('current_question', [next_question[0], next_question[1]])
 
       response.build_response(session_end = false)
-    end
-
-    def verify_correct_alexa_request!(request_body)
-      verification_result = AlexaVerifier.new.verify!(
-        request.headers['SignatureCertChainUrl'],
-        request.headers['Signature'],
-        request_body
-      )
-
-      logger.info "verification_result=#{verification_result}"
     end
 
     def log_request(request_body)
