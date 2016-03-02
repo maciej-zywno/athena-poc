@@ -45,12 +45,20 @@ class AlexaController < ApplicationController
       new_answered_questions = current_answered_questions << [current_question_id, current_question_answer]
       request.session.attributes['answered_questions'] = new_answered_questions
 
-      response = AlexaRubykit::Response.new
-      next_question = any_not_answered_question(request.session.attributes['questions'], request.session.attributes['answered_questions'])
-      response.add_speech(next_question)
-      response.add_session_attribute('current_question', next_question)
+      all_questions_answered = all_questions_answered?(request.session.attributes['questions'], request.session.attributes['answered_questions'])
 
-      response.build_response(session_end = all_questions_answered?(request.session.attributes['questions'], request.session.attributes['answered_questions']))
+      if all_questions_answered
+        response = AlexaRubykit::Response.new
+        response.add_speech('Thank you. Your answers have been recorded.')
+        response.build_response(session_end = all_questions_answered)
+      else
+        response = AlexaRubykit::Response.new
+        next_question = any_not_answered_question(request.session.attributes['questions'], request.session.attributes['answered_questions'])
+        response.add_speech(next_question)
+        response.add_session_attribute('current_question', next_question)
+
+        response.build_response(session_end = all_questions_answered)
+      end
     end
 
     def handle_launch_request(request_body_parsed, request)
@@ -104,10 +112,13 @@ class AlexaController < ApplicationController
       logger.info "!!! ALL_QUESTIONS_ANSWERED? !!!"
       logger.info "all_questions=#{all_questions.inspect}"
       logger.info "answered_questions=#{answered_questions.inspect}"
+      answered_ids = answered_questions.map(&:first)
+      all_questions.any{|e| !answered_ids.include?(e[0])}.first
     end
 
     def any_not_answered_question(all_questions, answered_questions)
-      return false
+      answered_ids = answered_questions.map(&:first)
+      all_questions.select{|e| !answered_ids.include?(e[0])}.first
     end
 
 end
