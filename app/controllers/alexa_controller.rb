@@ -45,7 +45,8 @@ class AlexaController < ApplicationController
       new_answered_questions = current_answered_questions << [current_question_id, current_question_answer]
       request.session.attributes['answered_questions'] = new_answered_questions
 
-      all_questions_answered = all_questions_answered?(request.session.attributes['questions'], request.session.attributes['answered_questions'])
+      all_questions_answered = all_questions_answered?(request.session.attributes['questions'],
+                                                       request.session.attributes['answered_questions'])
       logger.info "ALL_QUESTIONS_ANSWERED=#{all_questions_answered}"
 
       if all_questions_answered
@@ -54,7 +55,8 @@ class AlexaController < ApplicationController
         response.build_response(session_end = all_questions_answered)
       else
         response = AlexaRubykit::Response.new
-        next_question = any_not_answered_question(request.session.attributes['questions'], request.session.attributes['answered_questions'])
+        next_question = any_not_answered_question(request.session.attributes['questions'],
+                                                  request.session.attributes['answered_questions'])
         logger.info "NEXT_QUESTION=#{next_question}"
         response.add_speech(next_question)
         response.add_session_attribute('current_question', next_question)
@@ -119,7 +121,13 @@ class AlexaController < ApplicationController
 
     def any_not_answered_question(all_questions, answered_questions)
       answered_ids = answered_questions.map(&:first)
-      all_questions.find{|e| !answered_ids.include?(e[0])}[1]
+      logger.info "ANSWERED_IDS=#{answered_ids}"
+      logger.info "ANSWERED_QUESTIONS=#{answered_questions.inspect}"
+      not_answered_question = all_questions.find{|e|
+        !answered_ids.include?(e[0])
+      }
+      logger.info "NOT_ANSWERED_QUESTION=#{not_answered_question.inspect}"
+      not_answered_question[1]
     end
 
 end
