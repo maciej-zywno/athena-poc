@@ -1,4 +1,4 @@
-%tr{'data-link': practice_department_path(params[:practice_id], department.departmentid)}
+%tr{'data-link': (practice_department_path(params[:practice_id], department.departmentid) if policy(:department).show?)}
   %td
     = department.departmentid
   %td

@@ -50,4 +50,14 @@ class ApplicationPolicy
       scope
     end
   end
+
+  private
+
+  def self.permit_admin_to(*actions)
+    actions.each do |action|
+      define_method("#{action}?") do
+        user.admin?
+      end
+    end
+  end
 end

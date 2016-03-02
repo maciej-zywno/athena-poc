@@ -3,6 +3,8 @@ class PatientsController < ApplicationController
   before_action :find_patient, only: [:show, :edit, :invite]
 
   def index
+    authorize :patient, :index?
+
     @patient_collection = athena_health_client.all_patients(
       practice_id: params[:practice_id],
       department_id: params[:department_id],
@@ -11,10 +13,18 @@ class PatientsController < ApplicationController
   end
 
   def new
+    authorize :patient, :new?
+
     @patient = AthenaHealth::Patient.new
   end
 
+  def show
+    authorize :patient, :show?
+  end
+
   def create
+    authorize :patient, :create?
+
     @patient = AthenaHealth::Patient.new(athena_health_patient_params)
 
     response = athena_health_client.create_patient(
@@ -34,7 +44,13 @@ class PatientsController < ApplicationController
     end
   end
 
+  def edit
+    authorize :patient, :edit?
+  end
+
   def update
+    authorize :patient, :update?
+
     @patient = AthenaHealth::Patient.new(athena_health_patient_params)
 
     response = athena_health_client.update_patient(
@@ -55,6 +71,8 @@ class PatientsController < ApplicationController
   end
 
   def destroy
+    authorize :patient, :destroy?
+
     athena_health_client.delete_patient(
       practice_id: params[:practice_id],
       patient_id: params[:id]
@@ -67,6 +85,8 @@ class PatientsController < ApplicationController
   end
 
   def invite
+    authorize :patient, :invite?
+
     if User.find_by_patient_id(@patient.patientid)
       flash[:error] = 'Patient has been invited in the past'
     else
