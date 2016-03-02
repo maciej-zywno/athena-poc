@@ -46,6 +46,7 @@ class AlexaController < ApplicationController
       request.session.attributes['answered_questions'] = new_answered_questions
 
       all_questions_answered = all_questions_answered?(request.session.attributes['questions'], request.session.attributes['answered_questions'])
+      logger.info "ALL_QUESTIONS_ANSWERED=#{all_questions_answered}"
 
       if all_questions_answered
         response = AlexaRubykit::Response.new
