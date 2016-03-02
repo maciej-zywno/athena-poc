@@ -1,9 +1,3 @@
 class DepartmentPolicy < ApplicationPolicy
-  def index?
-    user.admin?
-  end
-
-  def show?
-    user.admin?
-  end
+  permit_admin_to :index, :show
 end

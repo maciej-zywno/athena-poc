@@ -1,5 +1,3 @@
 class InsurancePackagePolicy < ApplicationPolicy
-  def index?
-    user.admin?
-  end
+  permit_admin_to :index
 end
