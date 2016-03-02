@@ -113,8 +113,7 @@ class AlexaController < ApplicationController
       logger.info "!!! ALL_QUESTIONS_ANSWERED? !!!"
       logger.info "all_questions=#{all_questions.inspect}"
       logger.info "answered_questions=#{answered_questions.inspect}"
-      answered_ids = answered_questions.map(&:first)
-      all_questions.all?{|e| answered_ids.include?(e[0])}
+      all_questions.length == answered_questions.length
     end
 
     def any_not_answered_question(all_questions, answered_questions)
