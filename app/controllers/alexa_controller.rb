@@ -5,7 +5,11 @@ class AlexaController < ApplicationController
     log_request
     request_body = request.body.read.to_s
     verify_correct_alexa_request!(request_body)
-    alexa_request = AlexaRubykit.build_request(JSON.parse(request.body.read.to_s))
+    json_request = JSON.parse(request.body.read.to_s)
+    logger.info 'JSON REQUEST START'
+    logger.info json_request
+    logger.info 'JSON REQUEST END'
+    alexa_request = AlexaRubykit.build_request(json_request)
     render text: handle_alexa_request(alexa_request)
   end
 
