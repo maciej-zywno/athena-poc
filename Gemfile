@@ -39,8 +39,8 @@ group :development do
   gem 'letter_opener_web'
   gem 'better_errors'
   gem 'guard-bundler'
-  gem 'guard-rails'
-  gem 'guard-rspec'
+  gem 'guard-rails', require: false
+  gem 'guard-rspec', require: false
   gem 'html2haml'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
@@ -53,7 +53,9 @@ group :development, :test do
   gem 'faker'
   gem 'pry-rails'
   gem 'pry-rescue'
-  gem 'rspec-rails'
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+end
   gem 'rubocop'
 end
 
