@@ -11,7 +11,7 @@ class AlexaController < ApplicationController
     user = User.find_by_amazon_user_id(request_body_parsed['session']['user']['userId'])
 
     logger.info 'FIND TREATMENT QUESTIONS'
-    @questions = Treatment.last.questions.pluck(:question)
+    @questions = user.treatments.last.questions.pluck(:question)
 
 
     alexa_request = AlexaRubykit.build_request(request_body_parsed)
