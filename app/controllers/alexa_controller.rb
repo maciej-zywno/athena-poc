@@ -43,7 +43,7 @@ class AlexaController < ApplicationController
       logger.info "request=#{request.class}"
       logger.info "request=#{request.inspect}"
       logger.info "request.type=#{request.type}"
-      logger.info "request.attributes=#{request.attributes.inspect}"
+      logger.info "request.attributes=#{request_body_parsed}"
 
       logger.info 'FIND USER BY AMAZON USER ID'
       user = User.find_by_amazon_user_id(request_body_parsed['session']['user']['userId'])
