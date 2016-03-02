@@ -7,15 +7,7 @@ class AlexaController < ApplicationController
     request_body_parsed = JSON.parse(request_body)
     log_request(request_body_parsed)
 
-    logger.info 'FIND USER BY AMAZON USER ID'
-    user = User.find_by_amazon_user_id(request_body_parsed['session']['user']['userId'])
-
-    logger.info 'FIND TREATMENT QUESTIONS'
-    @questions = user.treatments.last.questions.pluck(:question)
-
-
-    alexa_request = AlexaRubykit.build_request(request_body_parsed)
-    render text: handle_alexa_request(alexa_request)
+    render text: handle_alexa_request(AlexaRubykit.build_request(request_body_parsed))
   end
 
   def handle_alexa_request(request)
@@ -48,7 +40,16 @@ class AlexaController < ApplicationController
     end
 
     def handle_launch_request(request)
+      logger.info "request=#{request.class}"
+      logger.info "request=#{request.inspect}"
       logger.info "request.type=#{request.type}"
+
+      logger.info 'FIND USER BY AMAZON USER ID'
+      user = User.find_by_amazon_user_id(request_body_parsed['session']['user']['userId'])
+
+      logger.info 'FIND TREATMENT QUESTIONS'
+      question_id_and_questions_pairs = user.treatments.last.questions.pluck(:id, :question)
+
       response = AlexaRubykit::Response.new
       response.add_speech(@questions.first)
       response.add_session_attribute('current_question', @questions.first)
