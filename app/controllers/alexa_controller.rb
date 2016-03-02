@@ -3,6 +3,11 @@ class AlexaController < ApplicationController
 
   def handle
     request_body = request.body.read.to_s
+
+    logger.info 'FIND USER BY AMAZONE USER ID'
+    user = User.find_by_amazon_user_id(request.body['user']['userId'])
+    logger.info user.inspect
+
     verify_correct_alexa_request!(request_body)
     request_body = JSON.parse(request.body.read.to_s)
     log_request(request_body)
