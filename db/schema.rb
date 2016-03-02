@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301013324) do
+ActiveRecord::Schema.define(version: 20160301173123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,14 @@ ActiveRecord::Schema.define(version: 20160301013324) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "treatment_id",             null: false
-    t.string   "question",                 null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "answer_type",  default: 0, null: false
+    t.integer  "treatment_id",                null: false
+    t.string   "question",                    null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "answer_type",    default: 0,  null: false
+    t.text     "risky_keywords", default: [],              array: true
+    t.integer  "low_threshold"
+    t.integer  "high_threshold"
   end
 
   create_table "treatments", force: :cascade do |t|
@@ -78,6 +81,7 @@ ActiveRecord::Schema.define(version: 20160301013324) do
     t.string   "athena_secret"
     t.integer  "patient_id"
     t.integer  "athena_provider_id"
+    t.string   "phone_number"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
