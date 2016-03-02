@@ -2,14 +2,11 @@ class AlexaController < ApplicationController
   skip_before_action :verify_authenticity_token, :authenticate_user!
 
   def handle
-    log_request
     request_body = request.body.read.to_s
     verify_correct_alexa_request!(request_body)
-    json_request = JSON.parse(request.body.read.to_s)
-    logger.info 'JSON REQUEST START'
-    logger.info json_request.to_json
-    logger.info 'JSON REQUEST END'
-    alexa_request = AlexaRubykit.build_request(json_request)
+    request_body = JSON.parse(request.body.read.to_s)
+    log_request(request_body)
+    alexa_request = AlexaRubykit.build_request(request_body)
     render text: handle_alexa_request(alexa_request)
   end
 
@@ -73,11 +70,10 @@ class AlexaController < ApplicationController
       logger.info "verification_result=#{verification_result}"
     end
 
-    def log_request
-      logger.info '!!! ALEXA START !!!'
+    def log_request(request_body)
+      logger.info '!!! ALEXA REQUEST BODY !!!'
 
-      logger.info params.inspect
-      logger.info params.to_json
+      logger.info request_body.to_json
       logger.info "request.headers['SignatureCertChainUrl']=#{request.headers['SignatureCertChainUrl']}"
       logger.info "request.headers['Signature']=#{request.headers['Signature']}"
 
