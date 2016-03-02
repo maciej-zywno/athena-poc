@@ -2,7 +2,7 @@
   "version": "1.0",
   "session": {
     "new": true,
-    "sessionId": "amzn1.echo-api.session.a3b176d0-7700-4414-97b1-7a1e5bbce8a6",
+    "sessionId": "amzn1.echo-api.session.dc073824-458a-4d87-8b19-7c1b3367c556",
     "application": {
       "applicationId": "amzn1.echo-sdk-ams.app.f0aeb857-0ab7-49ca-8259-3c5ff098bf32"
     },
@@ -12,27 +12,7 @@
   },
   "request": {
     "type": "LaunchRequest",
-    "requestId": "amzn1.echo-api.request.7b03318d-4b64-4564-b420-1b9c49b2c255",
-    "timestamp": "2016-03-02T09:31:44Z"
-  },
-  "controller": "alexa",
-  "action": "handle",
-  "alexa": {
-    "version": "1.0",
-    "session": {
-      "new": true,
-      "sessionId": "amzn1.echo-api.session.a3b176d0-7700-4414-97b1-7a1e5bbce8a6",
-      "application": {
-        "applicationId": "amzn1.echo-sdk-ams.app.f0aeb857-0ab7-49ca-8259-3c5ff098bf32"
-      },
-      "user": {
-        "userId": "amzn1.echo-sdk-account.AEUQY2RBMPLXKO3ROWNFHF4TGMSGFWH3MG3TJTUJNK6IZINTLENBY"
-      }
-    },
-    "request": {
-      "type": "LaunchRequest",
-      "requestId": "amzn1.echo-api.request.7b03318d-4b64-4564-b420-1b9c49b2c255",
-      "timestamp": "2016-03-02T09:31:44Z"
-    }
+    "requestId": "amzn1.echo-api.request.e83602e0-4436-4cd9-881f-0921e456091d",
+    "timestamp": "2016-03-02T09:45:23Z"
   }
 }
