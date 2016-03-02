@@ -28,10 +28,6 @@ class AlexaController < ApplicationController
 
   private
 
-    QUESTION_1 = 'Hello! Do you feel better then yesterday?'
-    QUESTION_2 = 'How do you feel today?'
-    QUESTION_3 = 'Did you take all your medications today?'
-
     def handle_session_ended_request(request)
       response = AlexaRubykit::Response.new
       logger.info "request.type=#{request.type}"
@@ -43,8 +39,6 @@ class AlexaController < ApplicationController
       logger.info "request.type=#{request.type}"
       logger.info "request.slots=#{request.slots}"
       logger.info "request.name=#{request.name}"
-
-      next_question = next_question(request.session.attributes['current_question'])
 
       response = AlexaRubykit::Response.new
       response.add_speech(@questions.first)
@@ -60,13 +54,6 @@ class AlexaController < ApplicationController
       response.add_session_attribute('current_question', @questions.first)
       @questions.shift
       response.build_response(session_end = false)
-    end
-
-    def next_question(current_question)
-      case current_question
-        when QUESTION_1 then return QUESTION_2
-        when QUESTION_2 then return QUESTION_3
-      end
     end
 
     def verify_correct_alexa_request!(request_body)
