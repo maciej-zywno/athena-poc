@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": false,
+    "sessionId": "amzn1.echo-api.session.dc073824-458a-4d87-8b19-7c1b3367c556",
+    "application": {
+      "applicationId": "amzn1.echo-sdk-ams.app.f0aeb857-0ab7-49ca-8259-3c5ff098bf32"
+    },
+    "attributes": {
+      "current_question": "Hello! Do you feel better then yesterday?"
+    },
+    "user": {
+      "userId": "amzn1.echo-sdk-account.AEUQY2RBMPLXKO3ROWNFHF4TGMSGFWH3MG3TJTUJNK6IZINTLENBY"
+    }
+  },
+  "request": {
+    "type": "SessionEndedRequest",
+    "requestId": "amzn1.echo-api.request.2d8a9e63-d7dd-4925-a29a-3bcc1b5c64b4",
+    "timestamp": "2016-03-02T09:45:32Z",
+    "reason": "EXCEEDED_MAX_REPROMPTS"
+  }
+}

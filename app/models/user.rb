@@ -13,4 +13,14 @@ class User < ActiveRecord::Base
   def athena_health_secret
     role != 'admin' ? invited_by.athena_secret : athena_secret
   end
+
+  def treatments
+    logger.info role
+    case role
+      when 'admin' then Treatment.all
+      when 'user' then Treatment.where(patient_id: id)
+      when 'doctor' then Treatment.where(doctor_id: id)
+      else raise "the method is not implemented for '#{role}' role"
+    end
+  end
 end

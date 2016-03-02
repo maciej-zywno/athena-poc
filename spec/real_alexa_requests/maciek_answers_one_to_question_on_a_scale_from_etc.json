@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": false,
+    "sessionId": "amzn1.echo-api.session.cddf1013-46c9-4440-b86d-3d0baef5651f",
+    "application": {
+      "applicationId": "amzn1.echo-sdk-ams.app.f0aeb857-0ab7-49ca-8259-3c5ff098bf32"
+    },
+    "attributes": {
+      "current_question": "On a scale 1 to 10 how bad is your back today?"
+    },
+    "user": {
+      "userId": "amzn1.echo-sdk-account.AEUQY2RBMPLXKO3ROWNFHF4TGMSGFWH3MG3TJTUJNK6IZINTLENBY"
+    }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "amzn1.echo-api.request.e78ccbd8-f6b6-48c7-94eb-5918667e456b",
+    "timestamp": "2016-03-02T10:08:11Z",
+    "intent": {
+      "name": "AnswerOnlyIntent",
+      "slots": {
+        "Answer": {
+          "name": "Answer",
+          "value": "1"
+        }
+      }
+    }
+  }
+}

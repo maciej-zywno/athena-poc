@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": true,
+    "sessionId": "amzn1.echo-api.session.dc073824-458a-4d87-8b19-7c1b3367c556",
+    "application": {
+      "applicationId": "amzn1.echo-sdk-ams.app.f0aeb857-0ab7-49ca-8259-3c5ff098bf32"
+    },
+    "user": {
+      "userId": "amzn1.echo-sdk-account.AEUQY2RBMPLXKO3ROWNFHF4TGMSGFWH3MG3TJTUJNK6IZINTLENBY"
+    }
+  },
+  "request": {
+    "type": "LaunchRequest",
+    "requestId": "amzn1.echo-api.request.e83602e0-4436-4cd9-881f-0921e456091d",
+    "timestamp": "2016-03-02T09:45:23Z"
+  }
+}
