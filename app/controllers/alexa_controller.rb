@@ -7,11 +7,11 @@ class AlexaController < ApplicationController
     request_body_parsed = JSON.parse(request_body)
     log_request(request_body_parsed)
 
-    render text: handle_alexa_request(AlexaRubykit.build_request(request_body_parsed))
+    render text: handle_alexa_request(request_body_parsed, AlexaRubykit.build_request(request_body_parsed))
   end
 
-  def handle_alexa_request(request)
-    return handle_launch_request(request) if (request.type == 'LAUNCH_REQUEST')
+  def handle_alexa_request(request_body_parsed, request)
+    return handle_launch_request(request_body_parsed, request) if (request.type == 'LAUNCH_REQUEST')
     return handle_intent_request(request) if (request.type == 'INTENT_REQUEST')
     return handle_session_ended_request(request) if (request.type =='SESSION_ENDED_REQUEST')
 
@@ -39,10 +39,11 @@ class AlexaController < ApplicationController
       response.build_response(@questions.first.nil?)
     end
 
-    def handle_launch_request(request)
+    def handle_launch_request(request_body_parsed, request)
       logger.info "request=#{request.class}"
       logger.info "request=#{request.inspect}"
       logger.info "request.type=#{request.type}"
+      logger.info "request.attributes=#{request.attributes.inspect}"
 
       logger.info 'FIND USER BY AMAZON USER ID'
       user = User.find_by_amazon_user_id(request_body_parsed['session']['user']['userId'])
