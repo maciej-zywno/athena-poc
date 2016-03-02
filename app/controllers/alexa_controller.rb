@@ -2,8 +2,8 @@ class AlexaController < ApplicationController
   skip_before_action :verify_authenticity_token, :authenticate_user!
 
   def handle
-    verify_correct_alexa_request!(request_body)
     request_body = JSON.parse(request.body.read.to_s)
+    verify_correct_alexa_request!(request_body)
     log_request(request_body)
 
     logger.info 'FIND USER BY AMAZON USER ID'
