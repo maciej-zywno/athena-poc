@@ -23,32 +23,33 @@ doctor = User.find_or_create_by!(email: 'doctor@athena-poc.com') do |user|
 end
 
 # Create treatment
-treatment = Treatment.create(
+treatment = Treatment.where(
   problem: 'Back problem',
   doctor_id: doctor.id,
   patient_id: patient.id
-)
+).first_or_create
 
 #Create treatment questions
-question_1 = treatment.questions.create(
-  question: 'On a scale from 1 to 10 how bad is your back today?',
-  answer_type: 'number',
-  low_threshold: 3,
-  high_threshold: 8
-)
+QUESTION_1 = 'On a scale from 1 to 10 how bad is your back today?'
+QUESTION_2 = 'Could you tell more details about your feelings?'
+QUESTION_3 = 'On a scale from 1 to 10 how was your sleep last night?'
 
-question_2 = treatment.questions.create(
-  question: 'Could you tell more details about your feelings?',
-  answer_type: :string,
-  risky_keywords: ['a lot', 'hurts', 'bad']
-)
+question_1 = treatment.questions.find_or_create_by(question: QUESTION_1) do |q|
+  q.low_threshold = 3,
+  q.high_threshold = 8,
+  q.number!
+end
 
-question_3 = treatment.questions.create(
-  question: 'On a scale from 1 to 10 how was your sleep last night?',
-  answer_type: :number,
-  low_threshold:  2,
-  high_threshold:  7
-)
+question_2 = treatment.questions.find_or_create_by(question: QUESTION_2) do |q|
+  q.risky_keywords = ['a lot', 'hurts', 'bad']
+  q.string!
+end
+
+question_3 = treatment.questions.find_or_create_by(question: QUESTION_3) do |q|
+  q.low_threshold =  2,
+  q.high_threshold =  7,
+  q.number!
+end
 
 date_range = ((Date.today - 14)..Date.today)
 rating_scale = *(1..10)
