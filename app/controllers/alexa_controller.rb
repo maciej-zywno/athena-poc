@@ -63,6 +63,7 @@ class AlexaController < ApplicationController
       logger.info 'FIND TREATMENT QUESTIONS'
       # [[4, "On a scale 1 to 10 how bad is your back today?"], [1, "How do you feel today?"]]
       question_id_and_questions_pairs = Treatment.last.questions.pluck(:id, :question)
+      logger.info "QUESTION_ID_AND_QUESTIONS_PAIRS: #{question_id_and_questions_pairs.inspect}"
       next_question = question_id_and_questions_pairs[0]
 
       response = AlexaRubykit::Response.new
