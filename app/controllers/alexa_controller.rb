@@ -10,85 +10,33 @@ class AlexaController < ApplicationController
     render text: handle_alexa_request(request_body_parsed, AlexaRubykit.build_request(request_body_parsed))
   end
 
-  def handle_alexa_request(request_body_parsed, request)
-    return handle_launch_request(request_body_parsed, request) if (request.type == 'LAUNCH_REQUEST')
-    return handle_intent_request(request) if (request.type == 'INTENT_REQUEST')
-    return handle_session_ended_request(request) if (request.type =='SESSION_ENDED_REQUEST')
-
-    raise "unsupported request type #{request.type}"
+  def handle_alexa_request(request_body, request)
+    case request.type
+      when 'LAUNCH_REQUEST' then process_alexa_request(*Alexa::LaunchRequestWrapper.new(request_body, request).process)
+      when 'INTENT_REQUEST' then process_alexa_request(*Alexa::IntentRequestWrapper.new(request_body, request).process)
+      when 'SESSION_ENDED_REQUEST' then process_alexa_request(nil, {}, true)
+      else raise "unsupported request type #{request.type}"
+    end
   end
 
   private
 
-    def handle_session_ended_request(request)
+    def process_alexa_request(speech, session_attributes, session_end)
       response = AlexaRubykit::Response.new
-      logger.info "request.type=#{request.type}"
-      logger.info "request.reason=#{request.reason}"
-      response.build_response
-    end
+      response.add_speech(speech) if speech
+      session_attributes.each { |k, v|
+        response.add_session_attribute(k, v)
+      }
 
-    def handle_intent_request(request)
-      logger.info "request.type=#{request.type}"
-      logger.info "request.slots=#{request.slots}"
-      logger.info "request.name=#{request.name}"
+      response = response.build_response(session_end)
 
-      # response.add_session_attribute('questions', question_id_and_questions_pairs)
-      # response.add_session_attribute('answered_questions', [])
-      # response.add_session_attribute('current_question', first_question[0])
-
-      # logger.info
-
-      # add current answer to answered_questions
-      current_answered_questions = request.session.attributes['answered_questions']
-      current_question_id, current_question_text = request.session.attributes['current_question']
-      current_question_answer = request.slots['Answer']['value']
-      new_answered_questions = current_answered_questions << [current_question_id, current_question_answer]
-
-      all_questions_answered = all_questions_answered?(request.session.attributes['questions'],
-                                                       request.session.attributes['answered_questions'])
-      logger.info "ALL_QUESTIONS_ANSWERED=#{all_questions_answered}"
-
-      if all_questions_answered
-        response = AlexaRubykit::Response.new
-        response.add_speech('Thank you. Your answers have been recorded.')
-        response.build_response(session_end = all_questions_answered)
-      else
-        response = AlexaRubykit::Response.new
-        next_question = any_not_answered_question(request.session.attributes['questions'],
-                                                  request.session.attributes['answered_questions'])
-        logger.info "NEXT_QUESTION=#{next_question}"
-        response.add_speech(next_question)
-        response.add_session_attribute('current_question', next_question)
-        response.add_session_attribute('answered_questions', new_answered_questions)
-        question_id_and_questions_pairs = Treatment.last.questions.pluck(:id, :question)
-        response.add_session_attribute('questions', question_id_and_questions_pairs)
-        response.build_response(session_end = all_questions_answered)
-      end
-    end
-
-    def handle_launch_request(request_body_parsed, request)
-      logger.info "request=#{request.class}"
-      logger.info "request=#{request.inspect}"
-      logger.info "request.type=#{request.type}"
-      logger.info "request.attributes=#{request_body_parsed}"
-
-      logger.info 'FIND USER BY AMAZON USER ID'
-      user = User.find_by_amazon_user_id(request_body_parsed['session']['user']['userId'])
-
-      logger.info 'FIND TREATMENT QUESTIONS'
-      # [[4, "On a scale 1 to 10 how bad is your back today?"], [1, "How do you feel today?"]]
-      question_id_and_questions_pairs = Treatment.last.questions.pluck(:id, :question)
-      logger.info "QUESTION_ID_AND_QUESTIONS_PAIRS: #{question_id_and_questions_pairs.inspect}"
-      next_question = question_id_and_questions_pairs[0]
-
-      response = AlexaRubykit::Response.new
-      response.add_speech(next_question[1])
-
-      response.add_session_attribute('questions', question_id_and_questions_pairs)
-      response.add_session_attribute('answered_questions', [])
-      response.add_session_attribute('current_question', [next_question[0], next_question[1]])
-
-      response.build_response(session_end = false)
+      logger.info "---------------------------------------------------"
+      logger.info "---------------------------------------------------"
+      logger.info "---------------------------------------------------"
+      logger.info "speech=#{speech}"
+      logger.info "session_attributes=#{session_attributes}"
+      logger.info response.inspect
+      response
     end
 
     def log_request(request_body)
@@ -99,26 +47,6 @@ class AlexaController < ApplicationController
       logger.info "request.headers['Signature']=#{request.headers['Signature']}"
 
       logger.info '!!! ALEXA END !!!'
-    end
-
-    # all_questions: [[4, "On a scale 1 to 10 how bad is your back today?"], [1, "How do you feel today?"]]
-    # answered_questions: [[1, "foo"], [4, "bar"]]
-    def all_questions_answered?(all_questions, answered_questions)
-      logger.info "!!! ALL_QUESTIONS_ANSWERED? !!!"
-      logger.info "all_questions=#{all_questions.inspect}"
-      logger.info "answered_questions=#{answered_questions.inspect}"
-      all_questions.length == answered_questions.length
-    end
-
-    def any_not_answered_question(all_questions, answered_questions)
-      answered_ids = answered_questions.map(&:first)
-      logger.info "ANSWERED_IDS=#{answered_ids}"
-      logger.info "ANSWERED_QUESTIONS=#{answered_questions.inspect}"
-      not_answered_question = all_questions.find{|e|
-        !answered_ids.include?(e[0])
-      }
-      logger.info "NOT_ANSWERED_QUESTION=#{not_answered_question.inspect}"
-      not_answered_question[1]
     end
 
 end
