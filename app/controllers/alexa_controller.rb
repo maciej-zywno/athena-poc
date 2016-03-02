@@ -2,7 +2,7 @@ class AlexaController < ApplicationController
   skip_before_action :verify_authenticity_token, :authenticate_user!
 
   def handle
-    verify_correct_alexa_request!(request)
+    # verify_correct_alexa_request!(request)
     request_body = JSON.parse(request.body.read.to_s)
     log_request(request_body)
 
