@@ -7,7 +7,7 @@ class AlexaController < ApplicationController
     log_request(request_body)
 
     logger.info 'FIND USER BY AMAZON USER ID'
-    user = User.find_by_amazon_user_id(request.body['user']['userId'])
+    user = User.find_by_amazon_user_id(request_body['session']['user']['userId'])
     logger.info user.inspect
 
     alexa_request = AlexaRubykit.build_request(request_body)
