@@ -10,10 +10,6 @@ class TreatmentPolicy < ApplicationPolicy
   end
 
   def show?
-    if user.admin?
-      true
-    else
-      record.patient_id == user.id || record.doctor_id == user.id
-    end
+    user.admin? || record.patient_id == user.id || record.doctor_id == user.id
   end
 end

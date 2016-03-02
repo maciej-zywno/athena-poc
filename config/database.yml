@@ -16,7 +16,7 @@ development:
   adapter:  postgresql
   encoding: unicode
   database: athena-poc_development
-  url: 'postgres://hccmalcyjdlgdd:cFqvmoYflD1dwI_uy7P1-LUcqL@ec2-54-225-215-233.compute-1.amazonaws.com:5432/d2b91f1qnmc5n4'
+  # url: 'postgres://hccmalcyjdlgdd:cFqvmoYflD1dwI_uy7P1-LUcqL@ec2-54-225-215-233.compute-1.amazonaws.com:5432/d2b91f1qnmc5n4'
   pool:     5
   template: template0
 

@@ -4,11 +4,14 @@
 - breadcrumb :practice, params[:id]
 
 .row
-  = link_to practice_departments_path(params[:id]) do
-    = render 'shared/resource_panel', title: 'Departments', description: 'List of practice departments', icon_class: 'fa fa-hospital-o fa-4x'
+  - if policy(:department).index?
+    = link_to practice_departments_path(params[:id]) do
+      = render 'shared/resource_panel', title: 'Departments', description: 'List of practice departments', icon_class: 'fa fa-hospital-o fa-4x'
 
-  = link_to practice_providers_path(params[:id]) do
-    = render 'shared/resource_panel', title: 'Providers', description: 'List of practice providers', icon_class: 'fa fa-user-md fa-4x'
+  - if policy(:provider).index?
+    = link_to practice_providers_path(params[:id]) do
+      = render 'shared/resource_panel', title: 'Providers', description: 'List of practice providers', icon_class: 'fa fa-user-md fa-4x'
 
-  = link_to practice_insurance_packages_path(params[:id]) do
-    = render 'shared/resource_panel', title: 'Insurance Packages', description: 'List of insurance packages', icon_class: 'pe-7s-portfolio fa-4x'
+  - if policy(:insurance_package).index?
+    = link_to practice_insurance_packages_path(params[:id]) do
+      = render 'shared/resource_panel', title: 'Insurance Packages', description: 'List of insurance packages', icon_class: 'pe-7s-portfolio fa-4x'
