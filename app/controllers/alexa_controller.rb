@@ -73,6 +73,7 @@ class AlexaController < ApplicationController
       logger.info '!!! ALEXA START !!!'
 
       logger.info params.inspect
+      logger.info params.to_json
       logger.info "request.headers['SignatureCertChainUrl']=#{request.headers['SignatureCertChainUrl']}"
       logger.info "request.headers['Signature']=#{request.headers['Signature']}"
 
