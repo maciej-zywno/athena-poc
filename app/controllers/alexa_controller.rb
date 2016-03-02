@@ -36,6 +36,8 @@ class AlexaController < ApplicationController
       # response.add_session_attribute('answered_questions', [])
       # response.add_session_attribute('current_question', first_question[0])
 
+      # logger.info
+
       # add current answer to answered_questions
       current_answered_questions = request.session.attributes['answered_questions']
       current_question_id, current_question_text = request.session.attributes['current_question']
