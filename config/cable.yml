@@ -1,5 +1,5 @@
-# production:
-#   url: redis://redis.example.com:6379
+production:
+  url: <%= ENV['REDISCLOUD_URL'] %>
 
 local: &local
   url: redis://localhost:6379

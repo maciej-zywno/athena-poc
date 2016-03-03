@@ -100,4 +100,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
+
+  config.action_cable.url = 'wss://athena-poc.herokuapp.com/cable'
+  config.action_cable.allowed_request_origins = [ 'https://athena-poc.herokuapp.com', /http:\/\/athena-poc.herokuapp.*/ ]
 end
