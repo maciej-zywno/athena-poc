@@ -7,13 +7,6 @@ GIT
       activesupport (>= 3.0.0)
 
 GIT
-  remote: git://github.com/mhfs/sidekiq-failures.git
-  revision: 4ff0e1756640bd8c77a9657ad7ea5cae73447091
-  specs:
-    sidekiq-failures (0.4.5)
-      sidekiq (>= 2.16.0)
-
-GIT
   remote: git://github.com/plataformatec/devise.git
   revision: 342304375946ca11608516eae80f78dbaae059d5
   specs:
@@ -31,6 +24,15 @@ GIT
     devise_invitable (1.5.5)
       actionmailer (>= 3.2.6, < 5)
       devise (>= 3.2.0)
+
+GIT
+  remote: git://github.com/sinatra/sinatra.git
+  revision: 4c7d38eb1b2cc02ce51029f28e0c3c34ca12ccfd
+  specs:
+    sinatra (2.0.0.pre.alpha)
+      rack (= 2.0.0.alpha)
+      rack-protection (~> 1.5)
+      tilt (~> 2.0)
 
 GIT
   remote: git://github.com/thoughtbot/high_voltage.git
@@ -308,6 +310,8 @@ GEM
       railties (>= 3.1, < 5.0)
     rack (2.0.0.alpha)
       json
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0.beta3)
@@ -384,6 +388,8 @@ GEM
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       redis (~> 3.2, >= 3.2.1)
+    sidekiq-failures (0.4.5)
+      sidekiq (>= 2.16.0)
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -493,8 +499,9 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   sidekiq
-  sidekiq-failures!
+  sidekiq-failures
   simple_form
+  sinatra!
   spring
   spring-commands-rspec
   twilio-ruby

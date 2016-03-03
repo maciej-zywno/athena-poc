@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   mount Upmin::Engine => '/admin'
 
@@ -5,9 +7,9 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: '/inbox'
   end
 
-  # authenticate(:user) do
-  #   mount Sidekiq::Web, at: '/sidekiq'
-  # end
+  authenticated :user, -> (u) { u.admin? } do
+    mount Sidekiq::Web, at: '/sidekiq'
+  end
 
   root to: 'visitors#index'
 
