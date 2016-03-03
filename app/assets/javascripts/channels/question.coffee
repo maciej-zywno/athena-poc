@@ -6,10 +6,10 @@ App.question = App.cable.subscriptions.create "QuestionChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    # Called when there's incoming data on the websocket for this channel
+    alert data['message']
 
-  follow: ->
-    @perform 'follow'
+  follow: (message) ->
+    @perform 'follow', message: message
 
   unfollow: ->
     @perform 'unfollow'
