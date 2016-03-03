@@ -3,7 +3,7 @@ class ProvidersController < ApplicationController
   before_action :set_provider, only: :invite
 
   def index
-    authorize :provider, :index?
+    authorize :provider
 
     @provider_collection = athena_health_client.all_providers(
       practice_id: params[:practice_id],
@@ -15,7 +15,7 @@ class ProvidersController < ApplicationController
   end
 
   def invite
-    authorize :provider, :invite?
+    authorize :provider
 
     if User.find_by_athena_provider_id(@provider.providerid)
       flash[:error] = 'Provider has been invited in the past'

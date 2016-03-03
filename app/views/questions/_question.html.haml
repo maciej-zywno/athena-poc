@@ -12,6 +12,8 @@
   %td
     = question.high_threshold
   %td
-    = link_to 'Edit', edit_treatment_question_path(@treatment, question), class: 'btn-sm btn-primary'
-    = link_to 'Delete', treatment_question_path(@treatment, question), method: :delete, class: 'btn-sm btn-danger'
+    - if policy(question).edit?
+      = link_to 'Edit', edit_treatment_question_path(@treatment, question), class: 'btn-sm btn-primary'
+    - if policy(question).destroy?
+      = link_to 'Delete', treatment_question_path(@treatment, question), method: :delete, class: 'btn-sm btn-danger'
 

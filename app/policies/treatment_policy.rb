@@ -10,6 +10,6 @@ class TreatmentPolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin? || record.patient_id == user.id || record.doctor_id == user.id
+    admin? || user.treatments.include?(record)
   end
 end
