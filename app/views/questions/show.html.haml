@@ -14,7 +14,7 @@
         %th Answer
         %th Keywords
         %th Sentiment
-    %tbody
+    %tbody#answers{"data-channel" => "question", "data-question-id" => @question.id}
       = render @question.answers
 - else
   = render 'shared/no_records', text: 'There is no answers for this question.'
