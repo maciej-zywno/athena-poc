@@ -2,6 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   mount Upmin::Engine => '/admin'
+  mount ActionCable.server => '/cable'
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/inbox'

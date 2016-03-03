@@ -15,6 +15,6 @@
 //= require bootstrap-sprockets
 //= require icheck
 //= require homer/scripts
-//= require_tree .
 //= require Chart
 //= require excanvas
+//= require_tree .
