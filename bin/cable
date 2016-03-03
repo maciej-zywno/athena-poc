@@ -1,0 +1,2 @@
+#!/bin/bash
+bundle exec puma -p 29090 cable/config.ru
