@@ -2,7 +2,7 @@ class DepartmentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    authorize :department, :index?
+    authorize :department
 
     @department_collection = athena_health_client.all_departments(
       practice_id: params[:practice_id],
@@ -11,7 +11,7 @@ class DepartmentsController < ApplicationController
   end
 
   def show
-    authorize :department, :show?
+    authorize :department
 
     @department = athena_health_client.find_department(
       practice_id: params[:practice_id],

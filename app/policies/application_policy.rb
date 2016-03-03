@@ -1,6 +1,8 @@
 class ApplicationPolicy
   attr_reader :user, :record
 
+  delegate :admin?, :doctor?, :patient?, to: :user
+
   def initialize(user, record)
     @user = user
     @record = record
@@ -56,7 +58,7 @@ class ApplicationPolicy
   def self.permit_admin_to(*actions)
     actions.each do |action|
       define_method("#{action}?") do
-        user.admin?
+        admin?
       end
     end
   end

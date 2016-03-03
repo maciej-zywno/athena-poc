@@ -7,15 +7,19 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    @question = @treatment.questions.find(params[:id])
+    authorize @question
   end
 
   def new
     @question = @treatment.questions.build
+    authorize @question
   end
 
   def create
     @question = @treatment.questions.build(risky_keywords_as_array(question_params))
+    authorize @question
+
     if @question.save
       redirect_to treatment_questions_path(@treatment), success: 'Question created succesfully'
     else
@@ -24,6 +28,8 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    authorize @question
+
     @question.risky_keywords_will_change!
     if @question.update(risky_keywords_as_array(question_params))
       redirect_to treatment_questions_path(@treatment), success: 'Question updated succesfully'
@@ -33,6 +39,8 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    authorize @question
+
     @question.destroy
     redirect_to treatment_questions_path(@treatment), notice: 'Question destroyed succesfully'
   end

@@ -3,13 +3,13 @@ class PracticesController < ApplicationController
   before_action :set_practice, only: :show
 
   def index
-    authorize :practice, :index?
+    authorize :practice
 
     @practice_collection = athena_health_client.all_practices
   end
 
   def show
-    authorize :practice, :show?
+    authorize :practice
   end
 
   private
