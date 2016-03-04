@@ -21,4 +21,4 @@
 
 %br/
 - if policy(current_user.games.build).new?
-  = link_to 'New Question', new_game_question_path(@game.id), class: 'btn btn-primary'
+  = link_to 'New Question', new_game_path, class: 'btn btn-primary'
