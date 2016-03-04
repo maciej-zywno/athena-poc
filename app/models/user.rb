@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def patients
-    User.where(doctor_id: self.id)
+  def kids
+    User.where(parent_id: self.id)
   end
 end
