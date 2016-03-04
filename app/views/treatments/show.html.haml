@@ -1,10 +1,10 @@
 = content_for :header_title do
   = @treatment.problem
 
-- breadcrumb :treatment, @treatment.id
+- breadcrumb :game, @treatment.id
 
 = link_to treatment_questions_path(params[:id]) do
-  = render 'shared/resource_panel', title: 'Questions', description: 'List of treatment questions', icon_class: 'fa-4x pe-7s-portfolio', icon_class: 'fa fa-question-circle fa-4x'
+  = render 'shared/resource_panel', title: 'Questions', description: 'List of game questions', icon_class: 'fa-4x pe-7s-portfolio', icon_class: 'fa fa-question-circle fa-4x'
 
 / %table.table.table-striped
 /   %thead
