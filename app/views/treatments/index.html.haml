@@ -1,5 +1,5 @@
 = content_for :header_title do
-  Treatments
+  Games
 
 - breadcrumb :treatments
 
@@ -8,13 +8,13 @@
     %thead
       %tr
         %th ID
-        %th Patient
-        %th Doctor
-        %th Problem
+        %th Kid
+        %th Parent
+        %th Game title
     %tbody
       = render @treatments
 
   .pagination_links
     = paginate @treatments
 - else
-  = render 'shared/no_records', text: "You didn't have any associated treatments."
+  = render 'shared/no_records', text: "You didn't have any associated games."
