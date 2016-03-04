@@ -3,5 +3,5 @@
   = f.input :answer_type, required: true, collection: Question.answer_types.keys
   = f.input :low_threshold, required: false
   = f.input :high_threshold, required: false
-  = f.input :risky_keywords, required: false
+  -#= f.input :risky_keywords, required: false
   = f.submit class: 'btn btn-primary'
