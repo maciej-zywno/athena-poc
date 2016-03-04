@@ -22,7 +22,8 @@ class GamePolicy < ApplicationPolicy
   end
 
   def create?
-    user.games.include?(record) && (admin? || doctor?)
+    # user.games.include?(record) && (admin? || doctor?)
+    (admin? || doctor?)
   end
 
   def update?
