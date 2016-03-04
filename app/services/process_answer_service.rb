@@ -1,13 +1,13 @@
 class ProcessAnswerService
   def call(answer)
     if answer.question.string?
-      answer.create_alchemy!(FetchAlchemyKeywordsAndSentimentService.new.call(answer))
-      if contains_risky_keywords_or_negative_sentiment?(answer)
-        Rails.logger.info "SENDING TEXT"
-        NotifyDoctorService.new.call(answer)
-      else
-        Rails.logger.info "NOT SENDING TEXT"
-      end
+      # answer.create_alchemy!(FetchAlchemyKeywordsAndSentimentService.new.call(answer))
+      # if contains_risky_keywords_or_negative_sentiment?(answer)
+      #   Rails.logger.info "SENDING TEXT"
+      #   NotifyDoctorService.new.call(answer)
+      # else
+      #   Rails.logger.info "NOT SENDING TEXT"
+      # end
     elsif answer.question.number?
       NotifyDoctorService.new.call(answer) if contains_risky_value?(answer)
     else
