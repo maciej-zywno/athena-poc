@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
       else raise "the method is not implemented for '#{role}' role"
     end
   end
+
+  def patients
+    User.where(doctor_id: self.id)
+  end
 end
