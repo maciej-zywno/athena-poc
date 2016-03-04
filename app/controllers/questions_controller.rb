@@ -64,6 +64,6 @@ class QuestionsController < ApplicationController
   end
 
   def to_array(risky_keywords_as_string)
-    risky_keywords_as_string.split(',').map(&:strip)
+    [""]#risky_keywords_as_string.split(',').map(&:strip)
   end
 end
