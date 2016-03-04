@@ -1,4 +1,4 @@
-%tr{'data-link': treatment_question_path(@treatment, question)}
+%tr{'data-link': game_question_path(@game, question)}
   %td
     = question.id
   %td
@@ -13,7 +13,7 @@
     = question.high_threshold
   %td
     - if policy(question).edit?
-      = link_to 'Edit', edit_treatment_question_path(@treatment, question), class: 'btn-sm btn-primary'
+      = link_to 'Edit', edit_game_question_path(@game, question), class: 'btn-sm btn-primary'
     - if policy(question).destroy?
-      = link_to 'Delete', treatment_question_path(@treatment, question), method: :delete, class: 'btn-sm btn-danger'
+      = link_to 'Delete', game_question_path(@game, question), method: :delete, class: 'btn-sm btn-danger'
 

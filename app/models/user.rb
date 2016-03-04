@@ -6,12 +6,12 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true
 
-  def treatments
+  def games
     logger.info role
     case role
-      when 'admin' then Treatment.all
-      when 'user' then Treatment.where(patient_id: id)
-      when 'doctor' then Treatment.where(doctor_id: id)
+      when 'admin' then Game.all
+      when 'user' then Game.where(patient_id: id)
+      when 'doctor' then Game.where(doctor_id: id)
       else raise "the method is not implemented for '#{role}' role"
     end
   end

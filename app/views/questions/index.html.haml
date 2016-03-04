@@ -1,7 +1,7 @@
 = content_for :header_title do
-  = "#{@treatment.problem} - Questions"
+  = "#{@game.problem} - Questions"
 
-- breadcrumb :questions, @treatment.id
+- breadcrumb :questions, @game.id
 
 - if @questions.any?
   %table.table.table-striped
@@ -17,8 +17,8 @@
     %tbody
       = render @questions
 - else
-  = render 'shared/no_records', text: 'There is no questions for this treatment.'
+  = render 'shared/no_records', text: 'There is no questions for this game.'
 
 %br/
-- if policy(@treatment.questions.build).new?
-  = link_to 'New Question', new_treatment_question_path(@treatment.id), class: 'btn btn-primary'
+- if policy(@game.questions.build).new?
+  = link_to 'New Question', new_game_question_path(@game.id), class: 'btn btn-primary'

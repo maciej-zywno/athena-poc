@@ -1,27 +1,27 @@
 class QuestionsController < ApplicationController
-  before_action :set_treatment
+  before_action :set_game
   before_action :set_question, only: [:edit, :update, :destroy]
 
   def index
-    @questions = @treatment.questions
+    @questions = @game.questions
   end
 
   def show
-    @question = @treatment.questions.find(params[:id])
+    @question = @game.questions.find(params[:id])
     authorize @question
   end
 
   def new
-    @question = @treatment.questions.build
+    @question = @game.questions.build
     authorize @question
   end
 
   def create
-    @question = @treatment.questions.build(risky_keywords_as_array(question_params))
+    @question = @game.questions.build(risky_keywords_as_array(question_params))
     authorize @question
 
     if @question.save
-      redirect_to treatment_questions_path(@treatment), success: 'Question created succesfully'
+      redirect_to game_questions_path(@game), success: 'Question created succesfully'
     else
       render :new
     end
@@ -32,7 +32,7 @@ class QuestionsController < ApplicationController
 
     @question.risky_keywords_will_change!
     if @question.update(risky_keywords_as_array(question_params))
-      redirect_to treatment_questions_path(@treatment), success: 'Question updated succesfully'
+      redirect_to game_questions_path(@game), success: 'Question updated succesfully'
     else
       render :edit
     end
@@ -42,17 +42,17 @@ class QuestionsController < ApplicationController
     authorize @question
 
     @question.destroy
-    redirect_to treatment_questions_path(@treatment), notice: 'Question destroyed succesfully'
+    redirect_to game_questions_path(@game), notice: 'Question destroyed succesfully'
   end
 
   private
 
-  def set_treatment
-    @treatment = Treatment.find(params[:treatment_id])
+  def set_fame
+    @game = Game.find(params[:game_id])
   end
 
   def set_question
-    @question = @treatment.questions.find(params[:id])
+    @question = @game.questions.find(params[:id])
   end
 
   def question_params

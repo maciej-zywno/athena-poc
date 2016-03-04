@@ -1,4 +1,4 @@
-= simple_form_for [@treatment, @question] do |f|
+= simple_form_for [@game, @question] do |f|
   = f.input :question, required: true
   = f.input :answer_type, required: true, collection: Question.answer_types.keys
   = f.input :low_threshold, required: false

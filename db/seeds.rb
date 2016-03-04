@@ -23,7 +23,7 @@ doctor = User.find_or_create_by!(email: 'doctor@athena-poc.com') do |user|
 end
 
 # Create treatment
-treatment = Treatment.where(
+treatment = Game.where(
   problem: 'Back problem',
   doctor_id: doctor.id,
   patient_id: patient.id

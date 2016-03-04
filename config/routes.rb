@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :treatments, only: [:index, :show] do
+  resources :games, only: [:index, :show] do
     resources :questions
   end
 

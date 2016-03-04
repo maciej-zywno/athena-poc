@@ -1,7 +1,7 @@
 = content_for :header_title do
   = @question.question
 
-- breadcrumb :question, @treatment.id, @question.id
+- breadcrumb :question, @game.id, @question.id
 
 #question_data{"data-channel" => "question", "data-question-id" => @question.id}
   = render 'question_data', question: @question

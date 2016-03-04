@@ -4,5 +4,5 @@ class Question < ActiveRecord::Base
   validates :question, presence: true
 
   has_many :answers
-  belongs_to :treatment
+  belongs_to :game, class_name: 'Game', foreign_key: 'treatment_id'
 end

@@ -3,7 +3,7 @@
 
 - breadcrumb :games
 
-- if @treatments.any?
+- if @games.any?
   %table.table.table-striped
     %thead
       %tr
@@ -12,9 +12,9 @@
         %th Parent
         %th Game title
     %tbody
-      = render @treatments
+      = render @games
 
   .pagination_links
-    = paginate @treatments
+    = paginate @games
 - else
   = render 'shared/no_records', text: "You didn't have any associated games."

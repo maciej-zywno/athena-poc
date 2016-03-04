@@ -6,33 +6,33 @@ crumb :practices do
   link 'Practices', practices_path
 end
 
-crumb :treatments do
-  link 'Treatments', treatments_path
+crumb :games do
+  link 'Games', games_path
 end
 
-crumb :treatment do |treatment|
-  link treatment, treatment_path(treatment)
-  parent :treatments
+crumb :game do |game|
+  link game, game_path(game)
+  parent :games
 end
 
-crumb :questions do |treatment|
-  link 'Questions', treatment_questions_path(treatment)
-  parent :treatment, treatment
+crumb :questions do |game|
+  link 'Questions', game_questions_path(game)
+  parent :game, game
 end
 
-crumb :question do |treatment, question|
-  link question, treatment_questions_path(treatment, question)
-  parent :questions, treatment
+crumb :question do |game, question|
+  link question, game_questions_path(game, question)
+  parent :questions, game
 end
 
-crumb :new_question do |treatment|
-  link 'New Question', treatment_questions_path(treatment)
-  parent :questions, treatment
+crumb :new_question do |game|
+  link 'New Question', game_questions_path(game)
+  parent :questions, game
 end
 
-crumb :edit_question do |treatment|
-  link 'Edit Question', treatment_questions_path(treatment)
-  parent :questions, treatment
+crumb :edit_question do |game|
+  link 'Edit Question', game_questions_path(game)
+  parent :questions, game
 end
 
 crumb :practice do |practice|

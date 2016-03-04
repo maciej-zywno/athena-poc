@@ -1,4 +1,4 @@
-class TreatmentPolicy < ApplicationPolicy
+class GamePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       case user.role
@@ -10,6 +10,6 @@ class TreatmentPolicy < ApplicationPolicy
   end
 
   def show?
-    admin? || user.treatments.include?(record)
+    admin? || user.games.include?(record)
   end
 end

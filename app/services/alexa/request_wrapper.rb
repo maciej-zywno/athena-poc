@@ -13,8 +13,8 @@ class Alexa::RequestWrapper
     Rails.logger.info 'FIND USER BY AMAZON USER ID'
     user = User.find_by_amazon_user_id(@plain_request_body['session']['user']['userId'])
 
-    Rails.logger.info 'FIND TREATMENT QUESTIONS'
-    question_id_and_questions_pairs = user.treatments.last.questions.pluck(:id, :question)
+    Rails.logger.info 'FIND GAMES QUESTIONS'
+    question_id_and_questions_pairs = user.games.last.questions.pluck(:id, :question)
 
     Rails.logger.info "QUESTION_ID_AND_QUESTIONS_PAIRS: #{question_id_and_questions_pairs.inspect}"
     question_id_and_questions_pairs
