@@ -12,4 +12,25 @@ class GamePolicy < ApplicationPolicy
   def show?
     admin? || user.games.include?(record)
   end
+
+  def new?
+    (admin? || doctor?)
+  end
+
+  def edit?
+    user.games.include?(record) && (admin? || doctor?)
+  end
+
+  def create?
+    user.games.include?(record) && (admin? || doctor?)
+  end
+
+  def update?
+    user.games.include?(record) && (admin? || doctor?)
+  end
+
+  def destroy?
+    user.games.include?(record) && (admin? || doctor?)
+  end
+
 end

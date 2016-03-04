@@ -9,4 +9,27 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     authorize @game, :show?
   end
+
+  def new
+    @game = current_user.games.build
+    authorize @game
+  end
+
+  def create
+    @game = current_user.games.build(game_params)
+    authorize @game
+
+    if @game.save
+      redirect_to games_path(@game), success: 'Game was created successfully'
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def game_params
+    params.require(:game).permit!
+  end
+
 end

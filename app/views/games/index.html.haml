@@ -18,3 +18,7 @@
     = paginate @games
 - else
   = render 'shared/no_records', text: "You didn't have any associated games."
+
+%br/
+- if policy(current_user.games.build).new?
+  = link_to 'New Question', new_game_question_path(@game.id), class: 'btn btn-primary'
