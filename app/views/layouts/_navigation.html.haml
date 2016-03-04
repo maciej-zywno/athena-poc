@@ -13,5 +13,7 @@
       -#- if policy(:practice).index?
       -#  %li{ class: is_active?(['practices', 'departments', 'patients', 'providers', 'insurance_packages'])}
       -#    = link_to 'Practices', practices_path
-      %li{ class: is_active?(['games', 'questions'])}
+      %li{ class: is_active?(['games'])}
         = link_to 'Games', games_path
+      %li{ class: is_active?(['kids'])}
+        = link_to 'Kids', users_path
