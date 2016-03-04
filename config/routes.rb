@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
 
-  resources :games, only: [:index, :show] do
+  resources :games do
     resources :questions
   end
 
