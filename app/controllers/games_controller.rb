@@ -16,7 +16,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = current_user.games.build(game_params)
+    @game = Game.new(game_params.merge(doctor_id: current_user.id))
     authorize @game
 
     if @game.save
