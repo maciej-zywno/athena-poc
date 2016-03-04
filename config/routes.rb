@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     mount Sidekiq::Web, at: '/sidekiq'
   end
 
-  root to: 'visitors#index'
+  root to: 'games#index'
 
   devise_for :users
   resources :users
