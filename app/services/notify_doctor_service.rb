@@ -1,6 +1,8 @@
 class NotifyDoctorService
   def call(answer)
-    SendTextMessageService.new.call(answer.question.treatment.doctor.phone_number, build_text(answer))
+    if ENV['SMS_ENABLED'] == 'true'
+      SendTextMessageService.new.call(answer.question.treatment.doctor.phone_number, build_text(answer))
+    end
   end
 
   private
