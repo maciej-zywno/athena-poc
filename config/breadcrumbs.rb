@@ -15,6 +15,14 @@ crumb :game do |game|
   parent :games
 end
 
+crumb :new_game do
+  link 'New Game', games_path
+end
+
+crumb :edit_game do
+  link 'Edit Game', games_path
+end
+
 crumb :questions do |game|
   link 'Questions', game_questions_path(game)
   parent :game, game

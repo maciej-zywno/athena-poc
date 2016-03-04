@@ -1,0 +1,4 @@
+= simple_form_for [@game] do |f|
+  = f.input :name, required: true
+  = f.input :patient_id, required: true, collection: current_user.patients.pluck(:id)
+  = f.submit class: 'btn btn-primary'
