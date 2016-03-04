@@ -1,15 +1,22 @@
 App.question = App.cable.subscriptions.create "QuestionChannel",
-  connected: ->
-    # Called when the subscription is ready for use on the server
+  collection: -> $("[data-channel='question']")
 
-  disconnected: ->
-    # Called when the subscription has been terminated by the server
+  connected: ->
+    setTimeout =>
+      @followCurrentQuestion()
+      @installPageChangeCallback()
+    , 1000
 
   received: (data) ->
-    alert data['message']
+    @collection().html(data.question_data)
 
-  follow: (message) ->
-    @perform 'follow', message: message
+  followCurrentQuestion: ->
+    if questionId = @collection().data('question-id')
+      @perform 'follow', question_id: questionId
+    else
+      @perform 'unfollow'
 
-  unfollow: ->
-    @perform 'unfollow'
+  installPageChangeCallback: ->
+    unless @installedPageChangeCallback
+      @installedPageChangeCallback = true
+      $(document).on 'page:change', -> App.question.followCurrentQuestion()

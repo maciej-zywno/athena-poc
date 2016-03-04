@@ -35,6 +35,7 @@ class Alexa::IntentRequestWrapper < Alexa::RequestWrapper
       Rails.logger.info "Create answer #{question_id}"
       answer = Answer.create!(question_id: question_id, answer: answer)
       ProcessAnswerService.new.call(answer)
+      QuestionBroadcastJob.perform_later(answer.question)
     end
 
     # all_questions: [[4, "On a scale 1 to 10 how bad is your back today?"], [1, "How do you feel today?"]]
