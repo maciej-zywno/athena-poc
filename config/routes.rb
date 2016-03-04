@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
 
-  resources :games do
+  resources :games, only: [:index, :show, :new, :create, :update, :update, :destroy] do
     resources :questions
   end
 
