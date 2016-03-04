@@ -2,14 +2,13 @@ App.question = App.cable.subscriptions.create "QuestionChannel",
   collection: -> $("[data-channel='question']")
 
   connected: ->
-    # FIXME: While we wait for cable subscriptions to always be finalized before sending messages
     setTimeout =>
       @followCurrentQuestion()
       @installPageChangeCallback()
     , 1000
 
   received: (data) ->
-    @collection().append(data.answer)
+    @collection().html(data.question_data)
 
   followCurrentQuestion: ->
     if questionId = @collection().data('question-id')

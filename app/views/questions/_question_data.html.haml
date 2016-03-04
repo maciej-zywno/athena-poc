@@ -1,0 +1,5 @@
+- if question.answers.any?
+  = render 'questions/chart', question: question
+  = render 'questions/answers_table', question: question
+- else
+  = render 'shared/no_records', text: 'There is no answers for this question.'

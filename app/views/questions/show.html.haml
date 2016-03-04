@@ -3,18 +3,5 @@
 
 - breadcrumb :question, @treatment.id, @question.id
 
-- if @question.answers.any?
-  = render 'chart'
-
-  %table.table.table-striped
-    %thead
-      %tr
-        %th ID
-        %th Date
-        %th Answer
-        %th Keywords
-        %th Sentiment
-    %tbody#answers{"data-channel" => "question", "data-question-id" => @question.id}
-      = render @question.answers
-- else
-  = render 'shared/no_records', text: 'There is no answers for this question.'
+#question_data{"data-channel" => "question", "data-question-id" => @question.id}
+  = render 'question_data', question: @question
