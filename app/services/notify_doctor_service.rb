@@ -22,6 +22,6 @@ class NotifyDoctorService
 
     def build_number_type_question_text(answer)
       patient = answer.question.game.patient
-      "Patient #{patient.name} answer #{answer.answer} to question #{answer.question.question} outside of threshold: LOW=#{answer.question.low_threshold} HIGH=#{answer.question.high_threshold}})"
+      "Kid #{patient.name} answer #{answer.answer} to question #{answer.question.question} outside of threshold: LOW=#{answer.question.low_threshold} HIGH=#{answer.question.high_threshold}})"
     end
 end
