@@ -47,7 +47,7 @@ class QuestionsController < ApplicationController
 
   private
 
-  def set_fame
+  def set_game
     @game = Game.find(params[:game_id])
   end
 
