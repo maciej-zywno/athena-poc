@@ -1,4 +1,4 @@
-class Client
+class Foo
   def instance
     client = Uber::Client.new do |config|
       config.server_token  = 'wk8nwLSCOQUMAKUbtSQYfISSk8yosMzDeB8RnHhN'

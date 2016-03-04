@@ -2,9 +2,9 @@
 %html
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %title= content_for?(:title) ? yield(:title) : 'Athena Poc'
+    %title= content_for?(:title) ? yield(:title) : 'Alexa Kids'
     = action_cable_meta_tag
-    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Athena Poc'}"}
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Alexa Kids'}"}
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
