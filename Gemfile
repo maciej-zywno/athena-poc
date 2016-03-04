@@ -84,3 +84,5 @@ gem 'chartjs-ror'
 gem 'sidekiq', branch: 'rails5'
 gem 'sidekiq-failures'
 gem 'sinatra', github: 'sinatra/sinatra'
+
+gem 'uber-ruby'
