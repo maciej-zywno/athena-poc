@@ -42,7 +42,7 @@ class AlexaController < ApplicationController
       require 'net/http'
       require 'uri'
 
-      token = 'monarch-health-token-1'
+      token = 'ef6ab597-3f8a-4c8c-a9d8-f4d9d7880287'
       url = "http://avsmetrics.herokuapp.com/alexa?token=#{token}"
       uri = URI.parse(url)
 
