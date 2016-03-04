@@ -6,12 +6,12 @@
         %span.font-extra-bold.font-uppercase= current_user.name
         %small.text-muted= current_user.email
     %ul#side-menu.nav
-      %li{ class: is_active?(['visitors'])}
-        = link_to root_path do
-          Games
-          %span.label.label-success.pull-right start
+      -#%li{ class: is_active?(['visitors'])}
+      -#  = link_to root_path do
+      -#    Games
+      -#    %span.label.label-success.pull-right start
       -#- if policy(:practice).index?
       -#  %li{ class: is_active?(['practices', 'departments', 'patients', 'providers', 'insurance_packages'])}
       -#    = link_to 'Practices', practices_path
-      -#%li{ class: is_active?(['treatments', 'questions'])}
-      -#  = link_to 'Treatments', treatments_path
+      %li{ class: is_active?(['treatments', 'questions'])}
+        = link_to 'Games', treatments_path
