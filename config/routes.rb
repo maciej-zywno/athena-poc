@@ -17,23 +17,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
 
-  resources :practices, only: [:index, :show] do
-    resources :insurance_packages, only: :index
-    resources :providers, only: :index do
-      member do
-        post :invite
-      end
-    end
-
-    resources :departments, only: [:index, :show] do
-      resources :patients do
-        member do
-          post :invite
-        end
-      end
-    end
-  end
-
   resources :games, only: [:index, :show] do
     resources :questions
   end
