@@ -43,7 +43,7 @@ class AlexaController < ApplicationController
       require 'uri'
 
       token = 'ef6ab597-3f8a-4c8c-a9d8-f4d9d7880287'
-      url = "http://avsmetrics.herokuapp.com/alexa?token=#{token}"
+      url = "http://www.avsmetrics.com/alexa?token=#{token}"
       uri = URI.parse(url)
 
       request = Net::HTTP::Post.new(uri.request_uri, 'Content-Type' =>'application/json')
