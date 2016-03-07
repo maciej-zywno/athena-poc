@@ -86,13 +86,13 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.mandrillapp.com",
+    address: 'smtp.sendgrid.net',
     port: 587,
     domain: Rails.application.secrets.domain_name,
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: Rails.application.secrets.email_provider_username,
-    password: Rails.application.secrets.email_provider_apikey
+    user_name: Rails.application.secrets.sendgrid_username,
+    password: Rails.application.secrets.sendgrid_apikey
   }
 
   # ActionMailer Config

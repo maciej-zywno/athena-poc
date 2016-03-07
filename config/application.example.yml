@@ -17,8 +17,8 @@
 # production:
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
-MANDRILL_USERNAME: Your_Username
-MANDRILL_APIKEY: Your_API_Key
+SENDGRID_USERNAME: Your_Username
+SENDGRID_APIKEY: Your_API_Key
 DOMAIN_NAME: example.com
 ADMIN_NAME: First User
 ADMIN_EMAIL: user@example.com
