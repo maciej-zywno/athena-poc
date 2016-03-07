@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: '/inbox'
   end
 
+  use_doorkeeper
+
   authenticated :user, -> (u) { u.admin? } do
     mount Sidekiq::Web, at: '/sidekiq'
   end
