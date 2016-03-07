@@ -6,7 +6,7 @@
   %td
     = question.answer_type.humanize
   %td
-    = question.risky_keywords
+    = question.risky_keywords.join(', ')
   %td
     = question.low_threshold
   %td

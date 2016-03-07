@@ -3,5 +3,5 @@
   = f.input :answer_type, required: true, collection: Question.answer_types.keys
   = f.input :low_threshold, required: false
   = f.input :high_threshold, required: false
-  = f.input :risky_keywords, required: false, placeholder: 'Separate risky keywords with comma', input_html: { value: (f.object.risky_keywords.empty? ? '' : f.object.risky_keywords) }
+  = f.input :risky_keywords, required: false, placeholder: 'Separate risky keywords with comma', input_html: { value: (f.object.risky_keywords.empty? ? '' : f.object.risky_keywords.join(', ')) }
   = f.submit class: 'btn btn-primary'
