@@ -22,7 +22,7 @@ group :development do
 end
 
 gem 'bootstrap-sass'
-gem 'devise', github: 'plataformatec/devise'
+gem 'devise', github: 'plataformatec/devise', branch: 'master'
 gem 'devise_invitable', github: 'scambra/devise_invitable'
 gem 'figaro'
 gem 'haml-rails'
