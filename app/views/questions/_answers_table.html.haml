@@ -4,7 +4,8 @@
       %th ID
       %th Date
       %th Answer
+      %th SMS Notification Sended
       %th Keywords
       %th Sentiment
   %tbody
-    = render question.answers
+    = render question.answers.order('created_at DESC')

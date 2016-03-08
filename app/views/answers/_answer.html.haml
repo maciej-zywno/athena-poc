@@ -6,6 +6,8 @@
   %td
     = answer.answer
   %td
+    = I18n.t(answer.sms_notification_sended.to_s)
+  %td
     = alchemy_keywords(answer.alchemy)
   %td
     = alchemy_sentiment(answer.alchemy)

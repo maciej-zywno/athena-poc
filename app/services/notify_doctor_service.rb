@@ -46,4 +46,8 @@ class NotifyDoctorService
       patient = answer.question.treatment.patient
       "Patient #{patient.name} answer #{answer.answer} to question #{answer.question.question} outside of threshold: LOW=#{answer.question.low_threshold} HIGH=#{answer.question.high_threshold}})"
     end
+
+    def update_answer_sms_notification_sended_field(answer)
+      answer.update(sms_notification_sended: true)
+    end
 end
