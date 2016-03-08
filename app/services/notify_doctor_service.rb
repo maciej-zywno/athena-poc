@@ -10,21 +10,21 @@ class NotifyDoctorService
 
   private
     def log_phone_number(phone_number)
-      Rail.logger.info "----------------------------------------"
-      Rail.logger.info "----------------------------------------"
-      Rail.logger.info "----------------------------------------"
-      Rail.logger.info "----------------------------------------"
-      Rail.logger.info "----------------------------------------"
-      Rail.logger.info "----------------------------------------"
-      Rail.logger.info "----------------------------------------"
-      Rail.logger.info "MESSAGE SENT TO #{phone_number}"
-      Rail.logger.info "----------------------------------------"
-      Rail.logger.info "----------------------------------------"
-      Rail.logger.info "----------------------------------------"
-      Rail.logger.info "----------------------------------------"
-      Rail.logger.info "----------------------------------------"
-      Rail.logger.info "----------------------------------------"
-      Rail.logger.info "----------------------------------------"
+      Rails.logger.info "----------------------------------------"
+      Rails.logger.info "----------------------------------------"
+      Rails.logger.info "----------------------------------------"
+      Rails.logger.info "----------------------------------------"
+      Rails.logger.info "----------------------------------------"
+      Rails.logger.info "----------------------------------------"
+      Rails.logger.info "----------------------------------------"
+      Rails.logger.info "MESSAGE SENT TO #{phone_number}"
+      Rails.logger.info "----------------------------------------"
+      Rails.logger.info "----------------------------------------"
+      Rails.logger.info "----------------------------------------"
+      Rails.logger.info "----------------------------------------"
+      Rails.logger.info "----------------------------------------"
+      Rails.logger.info "----------------------------------------"
+      Rails.logger.info "----------------------------------------"
     end
 
     def build_text(answer)
