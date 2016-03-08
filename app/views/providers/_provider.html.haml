@@ -13,5 +13,6 @@
     = provider.entitytype
   %td
     - unless User.find_by_athena_provider_id(provider.providerid)
-      = link_to 'Invite', "#", data: { toggle: 'modal', target: "#invite-provider-#{provider.providerid}" }, class: 'btn-sm btn-primary'
-      = render 'invite_provider_modal', provider_id: provider.providerid
+      - if policy(:provider).invite?
+        = link_to 'Invite', "#", data: { toggle: 'modal', target: "#invite-provider-#{provider.providerid}" }, class: 'btn-sm btn-primary'
+        = render 'invite_provider_modal', provider_id: provider.providerid
