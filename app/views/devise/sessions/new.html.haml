@@ -11,6 +11,10 @@
             = f.input :email, placeholder: 'example@gmail.com', required: true
             = f.input :password, placeholder: '******', required: true
 
+            = hidden_field_tag(:client_id, params[:client_id])
+            = hidden_field_tag(:state, params[:state])
+            = hidden_field_tag(:response_type, params[:response_type])
+
             - if devise_mapping.rememberable?
               .checkbox
                 = f.check_box :remember_me, class: 'i-checks', label: 'Remember me'
