@@ -12,6 +12,8 @@
   %td
     = question.high_threshold
   %td
+    = question.answers.count
+  %td
     - if policy(question).edit?
       = link_to 'Edit', edit_treatment_question_path(@treatment, question), class: 'btn-sm btn-primary'
     - if policy(question).destroy?
