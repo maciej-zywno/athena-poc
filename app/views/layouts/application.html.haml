@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %title= content_for?(:title) ? yield(:title) : 'Athena Poc'
+    %title= content_for?(:title) ? yield(:title) : I18n.t(:application_name)
     = action_cable_meta_tag
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Athena Poc'}"}
     = stylesheet_link_tag 'application', media: 'all'
@@ -22,4 +22,8 @@
             .hpanel
               .panel-body
                 = yield
-      = render 'layouts/footer'
+
+      %footer.footer
+        .text-center
+          %strong
+            = render 'layouts/footer'

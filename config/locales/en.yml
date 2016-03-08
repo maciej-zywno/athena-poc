@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  application_name: 'Monarch Care'
   hello: "Hello world"
   'true': 'Yes'
   'false': 'No'
