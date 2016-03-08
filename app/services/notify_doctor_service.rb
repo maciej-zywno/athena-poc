@@ -1,11 +1,31 @@
 class NotifyDoctorService
   def call(answer)
     if ENV['SMS_ENABLED'] == 'true'
-      SendTextMessageService.new.call(answer.question.treatment.doctor.phone_number, build_text(answer))
+      phone_number = answer.question.treatment.doctor.phone_number
+      log_phone_number(phone_number)
+      SendTextMessageService.new.call(phone_number, build_text(answer))
     end
   end
 
+
   private
+    def log_phone_number(phone_number)
+      Rail.logger.info "----------------------------------------"
+      Rail.logger.info "----------------------------------------"
+      Rail.logger.info "----------------------------------------"
+      Rail.logger.info "----------------------------------------"
+      Rail.logger.info "----------------------------------------"
+      Rail.logger.info "----------------------------------------"
+      Rail.logger.info "----------------------------------------"
+      Rail.logger.info "MESSAGE SENT TO #{phone_number}"
+      Rail.logger.info "----------------------------------------"
+      Rail.logger.info "----------------------------------------"
+      Rail.logger.info "----------------------------------------"
+      Rail.logger.info "----------------------------------------"
+      Rail.logger.info "----------------------------------------"
+      Rail.logger.info "----------------------------------------"
+      Rail.logger.info "----------------------------------------"
+    end
 
     def build_text(answer)
       if answer.question.string?
