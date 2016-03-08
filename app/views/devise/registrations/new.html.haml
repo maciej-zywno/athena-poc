@@ -14,8 +14,10 @@
             = f.input :password_confirmation, placeholder: '******', required: true
             = f.hidden_field :role, { value: 'admin' }
 
+            = render 'devise/shared/hidden_fields'
+
             = f.submit 'Sign up', class: 'btn btn-success btn-block'
 
             %br/
 
-            = link_to 'Already have an account?', new_session_path(resource_name), class: 'btn btn-default btn-block'
+            = link_to 'Already have an account?', new_session_path(resource_name, client_id: params[:client_id], state: params[:state], response_type: params[:response_type]), class: 'btn btn-default btn-block'

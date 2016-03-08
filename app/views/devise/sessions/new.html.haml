@@ -11,9 +11,7 @@
             = f.input :email, placeholder: 'example@gmail.com', required: true
             = f.input :password, placeholder: '******', required: true
 
-            = hidden_field_tag(:client_id, params[:client_id])
-            = hidden_field_tag(:state, params[:state])
-            = hidden_field_tag(:response_type, params[:response_type])
+            = render 'devise/shared/hidden_fields'
 
             - if devise_mapping.rememberable?
               .checkbox
@@ -26,7 +24,7 @@
             %br/
 
             - if devise_mapping.registerable?
-              = link_to 'Sign up', new_registration_path(resource_name), class: 'btn btn-default btn-block'
+              = link_to 'Sign up', new_registration_path(resource_name, client_id: params[:client_id], state: params[:state], response_type: params[:response_type]), class: 'btn btn-default btn-block'
 
             - if devise_mapping.recoverable?
               = link_to "Forgot password?", new_password_path(resource_name), class: 'btn btn-danger btn-block'

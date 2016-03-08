@@ -5,7 +5,7 @@ class SessionsController < Devise::SessionsController
     set_flash_message!(:notice, :signed_in)
     sign_in(resource_name, resource)
 
-    @oauth_app ||= Doorkeeper::Application.find_by_uid(params[:client_id])
+    @oauth_app = Doorkeeper::Application.find_by_uid(params[:client_id])
 
     yield resource if block_given?
     respond_with resource, location: redirect_url
