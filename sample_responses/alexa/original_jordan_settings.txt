@@ -1,0 +1,40 @@
+AnswerIntent the answer is {Answer}
+AnswerIntent is it {Answer}
+AnswerIntent {Answer} is my answer
+AnswerOnlyIntent {Answer}
+FreeTextAnswerIntent my answer is {something|FreeTextAnswer}
+FreeTextAnswerIntent my answer is {I feel good|FreeTextAnswer}
+FreeTextAnswerIntent {something|FreeTextAnswer}
+
+
+
+
+AMAZON.StartOverIntent start game
+AMAZON.StartOverIntent new game
+AMAZON.StartOverIntent start
+AMAZON.StartOverIntent start new game
+
+
+{
+  "intents": [
+
+    {
+      "intent": "AnswerIntent",
+      "slots": [{"name": "Answer","type": "LIST_OF_ANSWERS"}]
+    },
+     {
+      "intent": "AnswerOnlyIntent",
+      "slots": [{"name": "Answer","type": "LIST_OF_ANSWERS"}]
+     },
+     {
+      "intent": "FreeTextAnswerIntent",
+      "slots": [{"name": "FreeTextAnswer","type": "AMAZON.LITERAL"}]
+     },
+    {"intent": "AMAZON.StartOverIntent"},
+    {"intent": "AMAZON.RepeatIntent"},
+    {"intent": "AMAZON.HelpIntent"},
+	{"intent": "AMAZON.StopIntent"},
+	{"intent": "AMAZON.CancelIntent"}
+  ]
+
+}
