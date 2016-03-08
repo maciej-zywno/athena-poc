@@ -29,4 +29,12 @@ class ApplicationController < ActionController::Base
   def render_unathorized_error
     redirect_to '/401.html'
   end
+
+  def oauth_app
+    Doorkeeper::Application.find_by_uid(params[:client_id])
+  end
+
+  def oauth_app_redirect_url
+    oauth_app.redirect_uri + "#state=#{params[:state]}&access_token=#{resource.token}&token_type=Bearer"
+  end
 end

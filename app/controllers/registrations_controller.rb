@@ -8,8 +8,6 @@ class RegistrationsController < Devise::RegistrationsController
       set_flash_message! :notice, :signed_up
       sign_up(resource_name, resource)
 
-      @oauth_app = Doorkeeper::Application.find_by_uid(params[:client_id])
-
       respond_with resource, location: redirect_url
     else
       clean_up_passwords resource
@@ -21,10 +19,14 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def redirect_url
-    if @oauth_app
-      @oauth_app.redirect_uri + "#state=#{params[:state]}&access_token=#{resource.token}&token_type=Bearer"
-    else
-      after_sign_up_path_for(resource)
-    end
+    oauth_app ? oauth_app_redirect_url : after_sign_up_path_for(resource)
+  end
+
+  def sign_up_params
+    devise_parameter_sanitizer.sanitize(:sign_up)
+  end
+
+  def account_update_params
+    devise_parameter_sanitizer.sanitize(:account_update)
   end
 end
