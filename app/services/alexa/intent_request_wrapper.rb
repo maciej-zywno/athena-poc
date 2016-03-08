@@ -3,7 +3,7 @@ class Alexa::IntentRequestWrapper < Alexa::RequestWrapper
   def process
     # add current answer to answered_questions
     current_answered_questions = get_session_answered_questions
-    current_question_id, current_question_text = get_session_current_question
+    current_question_id, _current_question_text = get_session_current_question
     current_question_answer = get_request_answer_value
 
     store(current_question_id, current_question_answer)
