@@ -11,7 +11,8 @@ class Alexa::RequestWrapper
   # @return [[4, "On a scale 1 to 10 how bad is your back today?"], [1, "How do you feel today?"]]
   def get_question_id_and_questions_pairs
     Rails.logger.info 'FIND USER BY AMAZON USER ID'
-    user = User.find_by_token(@plain_request_body['session']['user']['accessToken'])
+    # user = User.find_by_token(@plain_request_body['session']['user']['accessToken'])
+    user = User.find_by_amazon_user_id(@plain_request_body['session']['user']['userId'])
 
     Rails.logger.info 'FIND TREATMENT QUESTIONS'
     question_id_and_questions_pairs = user.treatments.last.questions.pluck(:id, :question)
