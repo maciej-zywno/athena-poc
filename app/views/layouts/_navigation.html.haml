@@ -6,7 +6,7 @@
         %span.font-extra-bold.font-uppercase= current_user.name
         %small.text-muted= current_user.email
     %ul#side-menu.nav
-      %li{ class: is_active?(['visitors'])}
+      %li{ class: is_active?(['dashboard'])}
         = link_to root_path do
           Dashboard
           %span.label.label-success.pull-right start

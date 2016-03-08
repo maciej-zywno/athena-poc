@@ -1,0 +1,8 @@
+= content_for :header_title do
+  Dashboard
+
+.row
+  = render 'dashboard_resource', label: 'Users', count: User.count, css_class: 'hbggreen'
+  = render 'dashboard_resource', label: 'Treatments', count: Treatment.count, css_class: 'hbgyellow'
+  = render 'dashboard_resource', label: 'Questions', count: Question.count, css_class: 'hbgred'
+  = render 'dashboard_resource', label: 'Answers', count: Answer.count, css_class: 'hbgblue'

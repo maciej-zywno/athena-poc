@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     mount Sidekiq::Web, at: '/sidekiq'
   end
 
-  root to: 'visitors#index'
+  resource :dashboard, only: :show
+
+  root to: 'dashboard#show'
 
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
   resources :users
