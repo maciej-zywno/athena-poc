@@ -1,8 +1,8 @@
-%tr{'data-link': treatment_question_path(@treatment, question)}
+%tr{'data-link': treatment_question_path(@treatment, question), title: question.question}
   %td
     = question.id
   %td
-    = question.question
+    = truncate(question.question, length: 70)
   %td
     = question.answer_type.humanize
   %td
