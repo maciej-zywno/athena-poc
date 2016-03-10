@@ -35,6 +35,6 @@ class ApplicationController < ActionController::Base
   end
 
   def oauth_app_redirect_url
-    oauth_app.redirect_uri + "#state=#{params[:state]}&access_token=#{resource.token}&token_type=Bearer"
+    oauth_app.redirect_url + "#state=#{params[:state]}&access_token=#{resource.token}&token_type=Bearer"
   end
 end
