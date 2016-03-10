@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def oauth_app
-    Doorkeeper::Application.find_by_uid(params[:client_id])
+    OauthApplication.find_by_uid(params[:client_id])
   end
 
   def oauth_app_redirect_url

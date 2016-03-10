@@ -7,13 +7,6 @@ GIT
       activesupport (>= 3.0.0)
 
 GIT
-  remote: git://github.com/doorkeeper-gem/doorkeeper.git
-  revision: 4bbc43337ed3affaa5e5e406e916d3e0cca65e29
-  specs:
-    doorkeeper (4.0.0.rc2)
-      railties (>= 4.2)
-
-GIT
   remote: git://github.com/plataformatec/devise.git
   revision: 76f76249e746d9d7bddf3b8d5fa8868190fb5186
   branch: master
@@ -479,7 +472,6 @@ DEPENDENCIES
   database_cleaner
   devise!
   devise_invitable!
-  doorkeeper!
   factory_girl_rails
   faker
   figaro
