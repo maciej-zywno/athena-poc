@@ -33,15 +33,14 @@ class PatientsController < ApplicationController
       params: athena_health_patient_params
     )
 
-    if response.is_a?(Hash) && response['error'].present?
-      @errors = response
+    redirect_to practice_department_patients_path(
+      params[:practice_id],
+      params[:department_id]
+    ), notice: 'Patient created'
+
+    rescue AthenaHealth::ValidationError => e
+      @errors = e.details
       render :new
-    else
-      redirect_to practice_department_patients_path(
-        params[:practice_id],
-        params[:department_id]
-      ), notice: 'Patient created'
-    end
   end
 
   def edit
@@ -59,15 +58,14 @@ class PatientsController < ApplicationController
       params: athena_health_patient_params
     )
 
-    if response.is_a?(Hash) && response['error'].present?
-      @errors = response
+    redirect_to practice_department_patients_path(
+      params[:practice_id],
+      params[:department_id]
+    ), notice: 'Patient updated'
+
+    rescue AthenaHealth::ValidationError => e
+      @errors = e.details
       render :edit
-    else
-      redirect_to practice_department_patients_path(
-        params[:practice_id],
-        params[:department_id]
-      ), notice: 'Patient updated'
-    end
   end
 
   def destroy

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   rescue_from Exception do |e|
     if /AthenaHealth/.match(e.class.to_s)
       code = AthenaHealth::Error::ERROR_TYPES.key(e.class)
-      redirect_to "/#{code}.html"
+      redirect_to "/#{code}.html" if code
     else
       raise e
     end

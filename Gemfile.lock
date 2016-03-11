@@ -138,7 +138,7 @@ GEM
     alexa_verifier (0.1.0)
     arel (7.0.0)
     ast (2.2.0)
-    athena_health (0.8.3)
+    athena_health (0.8.4)
       activemodel
       typhoeus
       virtus
@@ -462,7 +462,7 @@ DEPENDENCIES
   alchemy-api-rb
   alexa_rubykit
   alexa_verifier
-  athena_health (~> 0.8.3)
+  athena_health (~> 0.8.4)
   better_errors
   bootstrap-sass
   byebug
