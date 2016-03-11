@@ -85,3 +85,5 @@ gem 'sidekiq', branch: 'rails5'
 gem 'sidekiq-failures'
 gem 'sinatra', github: 'sinatra/sinatra'
 gem 'raygun4ruby'
+
+gem 'wicked', github: 'schneems/wicked'
