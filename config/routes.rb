@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   resources :practices, only: [:index, :show] do
     resources :insurance_packages, only: :index
+    resources :appointments
+
     resources :providers, only: :index do
       member do
         post :invite

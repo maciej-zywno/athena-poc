@@ -1,0 +1,7 @@
+.row
+  .col-md-4
+    = simple_form_for :appointment, url: next_wizard_path, method: :get do |f|
+      = f.input :patient_appointment_reason_id, as: :select, collection: @patient_appointment_reasons, label_method: lambda { |reason| reason.reason }, value_method: :reasonid, required: true
+      = hidden_field_tag(:provider_id, params[:appointment][:provider_id])
+      = hidden_field_tag(:department_id, params[:appointment][:department_id])
+      = f.submit 'Next step', class: 'btn btn-primary'
