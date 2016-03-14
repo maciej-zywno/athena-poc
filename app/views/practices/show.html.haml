@@ -15,3 +15,7 @@
   - if policy(:insurance_package).index?
     = link_to practice_insurance_packages_path(params[:id]) do
       = render 'shared/resource_panel', title: 'Insurance Packages', description: 'List of insurance packages', icon_class: 'pe-7s-portfolio fa-4x'
+
+  - if policy(:appointment).new?
+    = link_to new_practice_appointment_path(params[:id]) do
+      = render 'shared/resource_panel', title: 'Schedule Appointment', description: 'Form for scheduling an appointment', icon_class: 'pe-7s-notebook fa-4x'
