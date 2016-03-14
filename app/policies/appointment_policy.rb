@@ -1,3 +1,3 @@
 class AppointmentPolicy < ApplicationPolicy
-  permit_patient_to :new, :show, :update
+  permit_admin_to :new, :show, :update
 end
