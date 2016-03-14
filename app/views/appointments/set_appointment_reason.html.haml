@@ -1,3 +1,8 @@
+= content_for :header_title do
+  New Appointment - Set Appointment Reason
+
+- breadcrumb :new_appointment, params[:practice_id]
+
 .row
   .col-md-4
     = simple_form_for :appointment, url: next_wizard_path, method: :get do |f|

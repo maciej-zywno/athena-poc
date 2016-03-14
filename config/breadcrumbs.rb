@@ -83,3 +83,8 @@ end
 crumb :update_my_account do
   link 'Update my account', edit_user_registration_path
 end
+
+crumb :new_appointment do |practice|
+  link 'New appointment', new_practice_appointment_path(practice)
+  parent :practice, practice
+end
