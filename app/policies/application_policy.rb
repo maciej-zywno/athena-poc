@@ -55,10 +55,14 @@ class ApplicationPolicy
 
   private
 
-  def self.permit_admin_to(*actions)
-    actions.each do |action|
-      define_method("#{action}?") do
-        admin?
+  class << self
+    %w(admin doctor patient).each do |role|
+      define_method("permit_#{role}_to") do |*actions|
+        actions.each do |action|
+          define_method("#{action}?") do
+            eval("#{role}?")
+          end
+        end
       end
     end
   end
