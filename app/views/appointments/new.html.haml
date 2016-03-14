@@ -1,0 +1,6 @@
+.row
+  .col-md-4
+    = simple_form_for :appointment, url: wizard_path(:set_appointment_reason), method: :get do |f|
+      = f.input :provider_id, as: :select, collection: @providers, label_method: lambda { |provider| provider.fullname }, value_method: :providerid, input_html: { name: 'provider_id' }, required: true
+      = f.input :department_id, as: :select, collection: @departments, label_method: lambda { |department| department.name }, value_method: :departmentid, input_html: { name: 'department_id' }, required: true
+      = f.submit 'Next step', class: 'btn btn-primary'
